@@ -2,7 +2,7 @@
 title = "How to update hugo and academic theme (Part2)"
 author = ["taipapa"]
 date = 2019-08-24
-lastmod = 2019-08-25T00:55:39+09:00
+lastmod = 2019-08-25T01:11:46+09:00
 type = "post"
 draft = false
 weight = 1
@@ -130,3 +130,19 @@ fatal: unable to access 'https://github.com/sourcethemes/academic-kickstart.git/
 ~~これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．~~
 
 ~~ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;~~
+
+```sh
+Enumerating objects: 546, done.
+Counting objects: 100% (546/546), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (503/503), done.
+Writing objects: 100% (530/530), 131.20 MiB | 8.04 MiB/s, done.
+Total 530 (delta 20), reused 0 (delta 0)
+remote: Resolving deltas: 100% (20/20), completed with 5 local objects.
+To https://github.com/taipapamotohus/academic-kickstart
+98a99bf..eb43ba1  master -> master
+```
+
+Forkを行ってから，クローンするようにするとdeployの際にエラーは出なくなった．自分のサイトだから書き換えできるので，当たり前である．．．(^^;;;
+
+前回，今回と間違ったことばかりやってしまったが，後日にまた同じ轍を踏まないように，それも含めて，全て記録するようにした．やっとアップデートが終わった．gitは奥が深い（自分が無知なだけ．．．）

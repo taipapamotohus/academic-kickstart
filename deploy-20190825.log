@@ -1,0 +1,471 @@
+Script started on Sun Aug 25 00:57:32 2019
+[?1034hbash-3.2$ ./deploy.sh 
+[0;32mDeploying updates to GitHub...[0m
+[?25lBuilding sites … [0;33mWARN[0m 2019/08/25 00:57:44 In the next Hugo version (0.58.0) we will change how $home.Pages behaves. If you want to list all regular pages, replace .Pages or .Data.Pages with .Site.RegularPages in your home page template.
+[?25h[K
+                   | EN   
++------------------+-----+
+  Pages            | 322  
+  Paginator pages  |  16  
+  Non-page files   |  56  
+  Static files     | 197  
+  Processed images |  94  
+  Aliases          | 120  
+  Sitemaps         |   1  
+  Cleaned          |   0  
+
+Total in 1079 ms
+[master 85f8f33] rebuilding site Sun Aug 25 00:57:44 JST 2019
+ 8 files changed, 80 insertions(+), 50 deletions(-)
+ rewrite index.json (93%)
+[KEnumerating objects: 25, done.
+[KCounting objects:   4% (1/25)[KCounting objects:   8% (2/25)[KCounting objects:  12% (3/25)[KCounting objects:  16% (4/25)[KCounting objects:  20% (5/25)[KCounting objects:  24% (6/25)[KCounting objects:  28% (7/25)[KCounting objects:  32% (8/25)[KCounting objects:  36% (9/25)[KCounting objects:  40% (10/25)[KCounting objects:  44% (11/25)[KCounting objects:  48% (12/25)[KCounting objects:  52% (13/25)[KCounting objects:  56% (14/25)[KCounting objects:  60% (15/25)[KCounting objects:  64% (16/25)[KCounting objects:  68% (17/25)[KCounting objects:  72% (18/25)[KCounting objects:  76% (19/25)[KCounting objects:  80% (20/25)[KCounting objects:  84% (21/25)[KCounting objects:  88% (22/25)[KCounting objects:  92% (23/25)[KCounting objects:  96% (24/25)[KCounting objects: 100% (25/25)[KCounting objects: 100% (25/25), done.
+Delta compression using up to 8 threads
+[KCompressing objects:   7% (1/13)[KCompressing objects:  15% (2/13)[KCompressing objects:  23% (3/13)[KCompressing objects:  30% (4/13)[KCompressing objects:  38% (5/13)[KCompressing objects:  46% (6/13)[KCompressing objects:  53% (7/13)[KCompressing objects:  61% (8/13)[KCompressing objects:  69% (9/13)[KCompressing objects:  76% (10/13)[KCompressing objects:  84% (11/13)[KCompressing objects:  92% (12/13)[KCompressing objects: 100% (13/13)[KCompressing objects: 100% (13/13), done.
+[KWriting objects:   7% (1/13)[KWriting objects:  15% (2/13)[KWriting objects:  23% (3/13)[KWriting objects:  30% (4/13)[KWriting objects:  38% (5/13)[KWriting objects:  46% (6/13)[KWriting objects:  53% (7/13)[KWriting objects:  61% (8/13)[KWriting objects:  69% (9/13)[KWriting objects:  76% (10/13)[KWriting objects:  84% (11/13)[KWriting objects:  92% (12/13)[KWriting objects: 100% (13/13)[KWriting objects: 100% (13/13), 3.32 KiB | 3.32 MiB/s, done.
+Total 13 (delta 12), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/12)[Kremote: Resolving deltas:   8% (1/12)[Kremote: Resolving deltas:  16% (2/12)[Kremote: Resolving deltas:  25% (3/12)[Kremote: Resolving deltas:  33% (4/12)[Kremote: Resolving deltas:  41% (5/12)[Kremote: Resolving deltas:  50% (6/12)[Kremote: Resolving deltas:  58% (7/12)[Kremote: Resolving deltas:  66% (8/12)[Kremote: Resolving deltas:  75% (9/12)[Kremote: Resolving deltas:  83% (10/12)[Kremote: Resolving deltas:  91% (11/12)[Kremote: Resolving deltas: 100% (12/12)[Kremote: Resolving deltas: 100% (12/12), completed with 12 local objects.[K
+To https://github.com/taipapamotohus/taipapamotohus.github.io.git
+   0c9aea1..85f8f33  master -> master
+[master eb43ba1] rebuilding site Sun Aug 25 00:57:44 JST 2019
+ 431 files changed, 12056 insertions(+), 278 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 Taipapablog-20180816_v2.org
+ create mode 100644 assets/.DS_Store
+ create mode 100644 config/.DS_Store
+ create mode 100644 content/.DS_Store
+ create mode 100644 content/authors/admin/avatar (Copy 1).jpg
+ create mode 100644 content/courses/_index.md
+ create mode 100644 content/courses/example/_index.md
+ create mode 100644 content/courses/example/example1.md
+ create mode 100644 content/courses/example/example2.md
+ create mode 100644 content/home/.DS_Store
+ rename content/home/{about.md => about/index.md} (95%)
+ rename content/home/{accomplishments.md => accomplishments/index.md} (96%)
+ rename content/home/{contact.md => contact/index.md} (89%)
+ delete mode 100644 content/home/demo.md
+ create mode 100644 content/home/demo/index.md
+ rename content/home/{experience.md => experience/index.md} (95%)
+ rename content/home/{featured.md => featured/index.md} (93%)
+ create mode 100644 content/home/gallery/gallery/theme-1950s.png
+ create mode 100644 content/home/gallery/gallery/theme-apogee.png
+ create mode 100644 content/home/gallery/gallery/theme-coffee-playfair.png
+ create mode 100644 content/home/gallery/gallery/theme-dark.png
+ create mode 100644 content/home/gallery/gallery/theme-default.png
+ create mode 100644 content/home/gallery/gallery/theme-forest.png
+ create mode 100644 content/home/gallery/gallery/theme-ocean.png
+ create mode 100644 content/home/gallery/gallery/theme-strawberry.png
+ create mode 100644 content/home/gallery/index.md
+ delete mode 100644 content/home/hero.md
+ create mode 100644 content/home/hero/index.md
+ rename content/home/{people.md => people/index.md} (100%)
+ rename content/home/{posts.md => posts/index.md} (89%)
+ rename content/home/{projects.md => projects/index.md} (83%)
+ rename content/home/{publications.md => publications/index.md} (93%)
+ rename content/home/{skills.md => skills/index.md} (89%)
+ rename content/home/{slider.md => slider/index.md} (100%)
+ rename content/home/{tags.md => tags/index.md} (51%)
+ rename content/home/{talks.md => talks/index.md} (93%)
+ create mode 100644 content/post/.DS_Store
+ create mode 100644 content/post/Different-segment-to-each-facet-in-ggplot/featured.jpg
+ create mode 100644 content/post/Different-segment-to-each-facet-in-ggplot/index.md
+ create mode 100644 content/post/Emacs_Install/featured.jpg
+ create mode 100644 content/post/Emacs_Install/index.md
+ create mode 100755 content/post/EmbedRplotInBlog/featured.jpg
+ create mode 100644 content/post/EmbedRplotInBlog/index.md
+ create mode 100755 content/post/ExportRplot/featured.jpg
+ create mode 100644 content/post/ExportRplot/index.md
+ create mode 100644 content/post/FullTextSearch/featured.jpg
+ create mode 100644 content/post/FullTextSearch/index.md
+ create mode 100644 content/post/Japanese_setup/featured.jpg
+ create mode 100644 content/post/Japanese_setup/index.md
+ create mode 100644 content/post/Live/featured.jpg
+ create mode 100644 content/post/Live/index.md
+ create mode 100644 content/post/Prelude_install/featured.jpg
+ create mode 100644 content/post/Prelude_install/index.md
+ create mode 100644 content/post/R_homebrew_update_error/featured.jpg
+ create mode 100644 content/post/R_homebrew_update_error/index.md
+ create mode 100644 content/post/Swiper_migemo/featured.jpg
+ create mode 100644 content/post/Swiper_migemo/index.md
+ create mode 100644 content/post/Synchronization/featured.jpg
+ create mode 100644 content/post/Synchronization/index.md
+ create mode 100644 content/post/Tufte/featured.jpg
+ create mode 100644 content/post/Tufte/index.md
+ create mode 100644 content/post/adaptive-wrap/featured.jpg
+ create mode 100644 content/post/adaptive-wrap/index.md
+ create mode 100644 content/post/annotation/featured.jpg
+ create mode 100644 content/post/annotation/index.md
+ create mode 100644 content/post/auto_html_export/featured.jpg
+ create mode 100644 content/post/auto_html_export/index.md
+ create mode 100644 content/post/beamer/featured.jpg
+ create mode 100644 content/post/beamer/index.md
+ create mode 100644 content/post/beamer_movie/featured.jpg
+ create mode 100644 content/post/beamer_movie/index.md
+ create mode 100644 content/post/beamer_movie2/featured.jpg
+ create mode 100644 content/post/beamer_movie2/index.md
+ create mode 100644 content/post/deadgrep/featured.jpg
+ create mode 100644 content/post/deadgrep/index.md
+ create mode 100644 content/post/gleanings/featured.jpg
+ create mode 100644 content/post/gleanings/index.md
+ create mode 100644 content/post/horizontal_scrollbar/featured.jpg
+ create mode 100644 content/post/horizontal_scrollbar/index.md
+ create mode 100644 content/post/how-to-update-hugo-and-academic-theme--part2/IMG_0870.jpeg
+ create mode 100644 content/post/how-to-update-hugo-and-academic-theme--part2/featured.jpg
+ create mode 100644 content/post/how-to-update-hugo-and-academic-theme--part2/index.md
+ create mode 100644 content/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg
+ create mode 100644 content/post/how-to-upgrade-hugo-and-academic-theme/index.md
+ create mode 100644 content/post/html_export/featured.jpg
+ create mode 100644 content/post/html_export/index.md
+ create mode 100644 content/post/init_org/featured.jpg
+ create mode 100644 content/post/init_org/index.md
+ create mode 100644 content/post/latexmk/featured.jpg
+ create mode 100644 content/post/latexmk/index.md
+ create mode 100644 content/post/mojave/featured.jpg
+ create mode 100644 content/post/mojave/index.md
+ create mode 100644 content/post/org-html-export-theme/featured.jpg
+ create mode 100644 content/post/org-html-export-theme/index.md
+ create mode 100644 content/post/org-mode_paper_1/featured.jpg
+ create mode 100644 content/post/org-mode_paper_1/index.md
+ create mode 100644 content/post/org-mode_paper_2/featured.jpg
+ create mode 100644 content/post/org-mode_paper_2/index.md
+ create mode 100644 content/post/org-mode_paper_3/featured.jpg
+ create mode 100644 content/post/org-mode_paper_3/index.md
+ create mode 100644 content/post/org-mode_paper_4/featured.jpg
+ create mode 100644 content/post/org-mode_paper_4/index.md
+ create mode 100644 content/post/org-mode_recursive-narrow/featured.jpg
+ create mode 100644 content/post/org-mode_recursive-narrow/index.md
+ create mode 100644 content/post/pdf-tools/featured.jpg
+ create mode 100644 content/post/pdf-tools/index.md
+ create mode 100644 content/post/peep/featured.jpg
+ create mode 100644 content/post/peep/index.md
+ create mode 100644 content/post/prodlim/featured.jpg
+ create mode 100644 content/post/prodlim/index.md
+ create mode 100644 content/post/symbol-overlay/featured.jpg
+ create mode 100644 content/post/symbol-overlay/index.md
+ create mode 100644 content/privacy.md
+ create mode 100644 content/project/external-project/featured.jpg
+ create mode 100644 content/project/external-project/index.md
+ create mode 100644 content/project/internal-project/featured.jpg
+ create mode 100644 content/project/internal-project/index.md
+ create mode 100644 content/publication/conference-paper/cite.bib
+ create mode 100644 content/publication/conference-paper/featured.jpg
+ create mode 100644 content/publication/conference-paper/index.md
+ create mode 100644 content/publication/journal-article/cite.bib
+ create mode 100644 content/publication/journal-article/featured.jpg
+ create mode 100644 content/publication/journal-article/index.md
+ create mode 100644 content/publication/preprint/featured.jpg
+ create mode 100644 content/publication/preprint/index.md
+ create mode 100644 content/slides/example/index.md
+ create mode 100644 content/talk/example/featured.jpg
+ create mode 100644 content/talk/example/index.md
+ create mode 100644 content/terms.md
+ create mode 100644 deploy.log
+ create mode 100755 deploy.sh
+ create mode 100644 layouts/.DS_Store
+ create mode 100644 layouts/_default/baseof.html
+ create mode 100644 layouts/partials/li_card.html
+ create mode 100644 layouts/partials/li_compact.html
+ create mode 100644 resources/_gen/assets/css/css/reveal_custom.css_d3f53f09220d597dac26fe7840c31fc9.content
+ create mode 100644 resources/_gen/assets/css/css/reveal_custom.css_d3f53f09220d597dac26fe7840c31fc9.json
+ create mode 100644 resources/_gen/assets/js/js/academic-bundle-pre.js_d3f53f09220d597dac26fe7840c31fc9.content
+ create mode 100644 resources/_gen/assets/js/js/academic-bundle-pre.js_d3f53f09220d597dac26fe7840c31fc9.json
+ create mode 100644 resources/_gen/assets/js/js/academic.min.js_187be290e8222f6bb644052568a2fb6d.content
+ create mode 100644 resources/_gen/assets/js/js/academic.min.js_187be290e8222f6bb644052568a2fb6d.json
+ create mode 100644 resources/_gen/assets/scss/sass/main.scss_5605ecb7fa3240a2f23d47aaede4565f.content
+ create mode 100644 resources/_gen/assets/scss/sass/main.scss_5605ecb7fa3240a2f23d47aaede4565f.json
+ create mode 100644 resources/_gen/images/authors/admin/avatar (Copy 1)_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg
+ create mode 100644 resources/_gen/images/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg
+ create mode 100644 resources/_gen/images/post/adaptive-wrap/featured_hu4a0ace92e72cf382fcea7de7c451e862_276640_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/adaptive-wrap/featured_hu4a0ace92e72cf382fcea7de7c451e862_276640_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/annotation/featured_hu0f6dc87524d4d39ad02993304f7d8ac4_174645_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/annotation/featured_hu0f6dc87524d4d39ad02993304f7d8ac4_174645_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/annotation/featured_hu0f6dc87524d4d39ad02993304f7d8ac4_174645_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/auto_html_export/featured_hu592e647b82f01b9de0f5e6b126142629_330916_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/auto_html_export/featured_hu592e647b82f01b9de0f5e6b126142629_330916_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer/featured_huaff353b5202d4fb813303b6ee5b62f93_202212_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer/featured_huaff353b5202d4fb813303b6ee5b62f93_202212_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer_movie/featured_hu028499480a34c99740c1b2e182073704_141068_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer_movie/featured_hu028499480a34c99740c1b2e182073704_141068_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer_movie2/featured_hua974f7423d3cd66db80b178cd5866ff2_182308_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/beamer_movie2/featured_hua974f7423d3cd66db80b178cd5866ff2_182308_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/deadgrep/featured_hud55839ff1a047bc86b7ab7595ef97e11_226197_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/deadgrep/featured_hud55839ff1a047bc86b7ab7595ef97e11_226197_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/different-segment-to-each-facet-in-ggplot/featured_hu50d559f38107cccac6953dfd9e67391f_193228_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/different-segment-to-each-facet-in-ggplot/featured_hu50d559f38107cccac6953dfd9e67391f_193228_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/emacs_install/featured_hu907f49963a1b6de4c69c05c09e12ff25_551947_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/emacs_install/featured_hu907f49963a1b6de4c69c05c09e12ff25_551947_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/embedrplotinblog/featured_hu5f8b7e9d208730e655e85938028ec5d9_229876_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/embedrplotinblog/featured_hu5f8b7e9d208730e655e85938028ec5d9_229876_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/exportrplot/featured_hue7e6e8bd2035bc03b6c8db31a556cad4_268086_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/exportrplot/featured_hue7e6e8bd2035bc03b6c8db31a556cad4_268086_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/fulltextsearch/featured_hu5f5fe325bf68dfbeacaaff4b3b3cde13_240050_2560x2560_fit_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/fulltextsearch/featured_hu5f5fe325bf68dfbeacaaff4b3b3cde13_240050_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/fulltextsearch/featured_hu5f5fe325bf68dfbeacaaff4b3b3cde13_240050_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/gleanings/featured_hueb7610115326df5acf907abf73448949_248462_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/gleanings/featured_hueb7610115326df5acf907abf73448949_248462_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/horizontal_scrollbar/featured_hu283ff4ae1460d47aaba5dc6279c951be_208860_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/horizontal_scrollbar/featured_hu283ff4ae1460d47aaba5dc6279c951be_208860_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-update-hugo-and-academic-theme-part2/featured_hu2232c9cfcbd202ae10435e8ad51b8e9d_169157_2560x2560_fit_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-update-hugo-and-academic-theme-part2/featured_hu2232c9cfcbd202ae10435e8ad51b8e9d_169157_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-update-hugo-and-academic-theme-part2/featured_hu2232c9cfcbd202ae10435e8ad51b8e9d_169157_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-upgrade-hugo-and-academic-theme/featured_hu95867c4ac616d21a118b9f6284746547_160971_2560x2560_fit_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-upgrade-hugo-and-academic-theme/featured_hu95867c4ac616d21a118b9f6284746547_160971_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/how-to-upgrade-hugo-and-academic-theme/featured_hu95867c4ac616d21a118b9f6284746547_160971_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/html_export/featured_hu762c6f21cb4b2a5ed6512d90de61cb0a_315049_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/html_export/featured_hu762c6f21cb4b2a5ed6512d90de61cb0a_315049_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/init_org/featured_hu7e6db172a07f1742d76d9f22d9efcf9f_107855_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/init_org/featured_hu7e6db172a07f1742d76d9f22d9efcf9f_107855_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/japanese_setup/featured_huc7137ea440490b9643f6b48f0e7452f8_195718_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/japanese_setup/featured_huc7137ea440490b9643f6b48f0e7452f8_195718_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/latexmk/featured_huf871b970f565b68f424c5672c88b9786_142732_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/latexmk/featured_huf871b970f565b68f424c5672c88b9786_142732_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/live/featured_hu8a8ad81e3912f17bee419e701f394fd5_197538_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/live/featured_hu8a8ad81e3912f17bee419e701f394fd5_197538_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/live/featured_hu8a8ad81e3912f17bee419e701f394fd5_197538_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/mojave/featured_hu9fbc27abba67a893bc819d87c54520bf_192820_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/mojave/featured_hu9fbc27abba67a893bc819d87c54520bf_192820_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-html-export-theme/featured_hud7735a94dbbee004113546d23128413e_252800_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-html-export-theme/featured_hud7735a94dbbee004113546d23128413e_252800_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_1/featured_hua5bc02244045a68c6afb07985e7889e1_165074_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_1/featured_hua5bc02244045a68c6afb07985e7889e1_165074_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_2/featured_hu3dbe72da0ff8befa95b005ee1b4f1370_166184_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_2/featured_hu3dbe72da0ff8befa95b005ee1b4f1370_166184_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_3/featured_hu1fa346763557acbbfb2928e17b168f07_140267_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_3/featured_hu1fa346763557acbbfb2928e17b168f07_140267_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_4/featured_huf1857551614f3c2e29615cb13c0890d8_158699_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_paper_4/featured_huf1857551614f3c2e29615cb13c0890d8_158699_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_recursive-narrow/featured_hu28102f7cb8c0df81b0762e2cc78ea763_285592_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/org-mode_recursive-narrow/featured_hu28102f7cb8c0df81b0762e2cc78ea763_285592_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/pdf-tools/featured_hu079fe51070d9dcda5780a79a3b6c873d_235043_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/pdf-tools/featured_hu079fe51070d9dcda5780a79a3b6c873d_235043_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/pdf-tools/featured_hu079fe51070d9dcda5780a79a3b6c873d_235043_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/peep/featured_hu05df2d7b78040620efd524cbda54ab14_337194_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/peep/featured_hu05df2d7b78040620efd524cbda54ab14_337194_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/prelude_install/featured_huc8492b421898e2801047279ec3568bfa_295002_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/prelude_install/featured_huc8492b421898e2801047279ec3568bfa_295002_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/prodlim/featured_huc508ba20b90487e3cefbe5e2803754ad_278406_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/prodlim/featured_huc508ba20b90487e3cefbe5e2803754ad_278406_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/r_homebrew_update_error/featured_huad34e1c6ecf889de215273cfcd8a6d1c_396401_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/r_homebrew_update_error/featured_huad34e1c6ecf889de215273cfcd8a6d1c_396401_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/swiper_migemo/featured_hu16976cb47fd58a198c2d0675fe510506_210966_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/swiper_migemo/featured_hu16976cb47fd58a198c2d0675fe510506_210966_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/symbol-overlay/featured_hu5201ab3f903373cc78f8767769a4a445_193797_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/symbol-overlay/featured_hu5201ab3f903373cc78f8767769a4a445_193797_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/symbol-overlay/featured_hu5201ab3f903373cc78f8767769a4a445_193797_900x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/synchronization/featured_hu00753f99c7a717837180972cb4a8d74a_243824_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/synchronization/featured_hu00753f99c7a717837180972cb4a8d74a_243824_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/tufte/featured_hua1c13556f249d4ce04591fa8cdf3156e_289727_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/post/tufte/featured_hua1c13556f249d4ce04591fa8cdf3156e_289727_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_720x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_600x0_resize_q90_lanczos.jpg
+ create mode 100644 resources/_gen/images/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
+ create mode 100644 static/.DS_Store
+ create mode 100644 static/img/.DS_Store
+ create mode 100644 static/img/After_adaptive.jpg
+ create mode 100644 static/img/Apache.jpg
+ create mode 100644 static/img/Athen-1.jpg
+ create mode 100644 static/img/Before_adaptive.jpg
+ create mode 100644 static/img/CodeBlock_small.jpg
+ create mode 100644 static/img/FTsearch_view.jpg
+ create mode 100644 static/img/FTsearch_view2.jpg
+ create mode 100644 static/img/FTsearch_view3.jpg
+ create mode 100644 static/img/FTsearch_view3.psd
+ create mode 100644 static/img/FTsearch_view4.jpg
+ create mode 100644 static/img/IMG_0564.jpg
+ create mode 100644 static/img/IMG_0579.jpg
+ create mode 100644 static/img/IMG_0610.jpg
+ create mode 100644 static/img/IMG_1156.jpeg
+ create mode 100644 static/img/IMG_2414.jpg
+ create mode 100644 static/img/IMG_2579.jpeg
+ create mode 100644 static/img/IMG_2580.jpeg
+ create mode 100644 static/img/Istanbul-8.jpg
+ create mode 100644 static/img/Moko.jpg
+ create mode 100644 static/img/Privacy.jpg
+ create mode 100644 static/img/R-test-html.jpeg
+ create mode 100644 static/img/R-test-html.jpg
+ create mode 100644 static/img/R-test-html.png
+ create mode 100644 static/img/ReadTheOrg.jpg
+ create mode 100644 static/img/ReadTheOrg.png
+ create mode 100644 static/img/Rename.jpg
+ create mode 100644 static/img/Super-save.jpg
+ create mode 100644 static/img/Tufte_test_v4.jpg
+ create mode 100644 static/img/Tufte_test_v5.jpg
+ create mode 100644 static/img/Whitespace-mode.jpg
+ create mode 100644 static/img/beamer_test.jpg
+ create mode 100644 static/img/beamer_test2.jpg
+ create mode 100644 static/img/beamer_test3.jpg
+ create mode 100644 static/img/bibdesk-pubmed.jpg
+ create mode 100644 static/img/bibdesk-pubmed2.jpg
+ create mode 100644 static/img/bibdesk-pubmed3.jpg
+ create mode 100644 static/img/bibdesk-pubmed4.jpg
+ create mode 100644 static/img/bibdesk.jpg
+ create mode 100644 static/img/boards.jpg
+ create mode 100644 static/img/bubbles.jpg
+ create mode 100644 static/img/deadgrep.jpg
+ create mode 100644 static/img/deadgrep.png
+ create mode 100644 static/img/deadgrep2.jpg
+ create mode 100644 static/img/directory-1a.jpg
+ create mode 100644 static/img/display-line-number.jpg
+ create mode 100644 static/img/headers/.DS_Store
+ create mode 100644 static/img/headers/Athen-1.jpg
+ create mode 100644 static/img/headers/Attica.jpg
+ create mode 100644 static/img/headers/BlueMosque.jpg
+ create mode 100644 static/img/headers/Brussels.jpg
+ create mode 100644 static/img/headers/CasaRomana.jpg
+ create mode 100644 static/img/headers/Colosseum.jpg
+ create mode 100644 static/img/headers/Creta.jpg
+ create mode 100644 static/img/headers/Femme.jpg
+ create mode 100644 static/img/headers/Florence-1.jpg
+ create mode 100644 static/img/headers/Galata.jpg
+ create mode 100644 static/img/headers/GrandPlace.jpg
+ create mode 100644 static/img/headers/GrandPlace2.jpg
+ create mode 100644 static/img/headers/HagiaSophia.jpg
+ create mode 100644 static/img/headers/Honolulu-1.jpg
+ create mode 100644 static/img/headers/Honolulu-2.jpg
+ create mode 100644 static/img/headers/Honolulu-3.jpg
+ create mode 100644 static/img/headers/Honolulu.jpg
+ create mode 100755 static/img/headers/Hotel_de_Ville_de_Bruxelles.jpg
+ create mode 100644 static/img/headers/IMG_0286.jpg
+ create mode 100644 static/img/headers/IMG_0355.jpg
+ create mode 100644 static/img/headers/IMG_0448.jpg
+ create mode 100644 static/img/headers/IMG_0577.jpg
+ create mode 100644 static/img/headers/IMG_0672.jpg
+ create mode 100644 static/img/headers/IMG_0734.jpg
+ create mode 100644 static/img/headers/IMG_0737.jpg
+ create mode 100644 static/img/headers/IMG_0738.jpg
+ create mode 100644 static/img/headers/IMG_0748.jpg
+ create mode 100644 static/img/headers/IMG_0934.jpg
+ create mode 100644 static/img/headers/IMG_0953.jpg
+ create mode 100644 static/img/headers/IMG_1169.jpg
+ create mode 100755 static/img/headers/IMG_1315.JPG
+ create mode 100755 static/img/headers/IMG_13152.JPG
+ create mode 100644 static/img/headers/IMG_1337.jpg
+ create mode 100644 static/img/headers/IMG_1504.jpeg
+ create mode 100644 static/img/headers/IMG_1554.jpeg
+ create mode 100644 static/img/headers/IMG_1562.jpg
+ create mode 100644 static/img/headers/IMG_1563.jpg
+ create mode 100755 static/img/headers/IMG_1636.jpg
+ create mode 100755 static/img/headers/IMG_1639.jpg
+ create mode 100644 static/img/headers/IMG_1923.jpg
+ create mode 100644 static/img/headers/IMG_1996.jpg
+ create mode 100644 static/img/headers/IMG_2108.jpeg
+ create mode 100644 static/img/headers/IMG_2199.jpg
+ create mode 100644 static/img/headers/IMG_2204.jpg
+ create mode 100644 static/img/headers/IMG_2367.jpg
+ create mode 100644 static/img/headers/Ikaruga.jpg
+ create mode 100644 static/img/headers/Istanbul-First.jpg
+ create mode 100644 static/img/headers/Istanbul-long.jpg
+ create mode 100644 static/img/headers/Istanbul.jpg
+ create mode 100644 static/img/headers/Kojidai.jpg
+ create mode 100644 static/img/headers/Kojidai2.jpg
+ create mode 100644 static/img/headers/LA.jpg
+ create mode 100644 static/img/headers/Orvieto.jpg
+ create mode 100644 static/img/headers/Paris-2.jpg
+ create mode 100644 static/img/headers/Paris-3.jpg
+ create mode 100644 static/img/headers/Paris-4.jpg
+ create mode 100644 static/img/headers/Paris-5.jpg
+ create mode 100644 static/img/headers/Paris.jpg
+ create mode 100644 static/img/headers/Parthenon.jpg
+ create mode 100644 static/img/headers/Pharaoh.jpg
+ create mode 100644 static/img/headers/PiazzaNavona.jpg
+ create mode 100644 static/img/headers/PlaceRoyaleBruxelles.jpg
+ create mode 100644 static/img/headers/Pont_des_Arts.jpg
+ create mode 100644 static/img/headers/Roma.jpg
+ create mode 100644 static/img/headers/SanFrancisco.jpg
+ create mode 100644 static/img/headers/Sforza.jpg
+ create mode 100644 static/img/headers/Templum_Veneris_et_Romae.jpg
+ create mode 100644 static/img/headers/Topkapi_Palace.jpg
+ create mode 100644 static/img/headers/Vancouver.jpg
+ create mode 100644 static/img/headers/Vaticano.jpg
+ create mode 100755 static/img/headers/Wikiki-2.jpg
+ create mode 100644 static/img/headers/bubbles-wide.jpg
+ create mode 100644 static/img/headers/emacs.png
+ create mode 100644 static/img/headers/getting-started.png
+ create mode 100755 static/img/headers/taichi.JPG
+ create mode 100644 "static/img/headers/\347\220\265\347\220\266\346\271\226.jpg"
+ create mode 100644 static/img/hero-academic.png
+ create mode 100644 static/img/hogefuga_English-WORD.jpg
+ create mode 100644 static/img/hogefuga_English-html.jpg
+ create mode 100644 static/img/hogefuga_English-pdf.jpg
+ create mode 100644 static/img/hogefuga_html.jpg
+ create mode 100644 static/img/hogefuga_text.jpg
+ create mode 100644 static/img/iTerm2.jpg
+ create mode 100644 static/img/narrow-1.jpeg
+ create mode 100644 static/img/narrow-1.jpg
+ create mode 100644 static/img/narrow-2.jpeg
+ create mode 100644 static/img/narrow-2.jpg
+ create mode 100644 static/img/narrow-3.jpeg
+ create mode 100644 static/img/narrow-3.jpg
+ create mode 100644 static/img/org-C-c-C-e.jpg
+ create mode 100644 static/img/org-bullet.jpg
+ create mode 100644 static/img/org-spec.png
+ create mode 100644 static/img/pdf-tools-1.jpg
+ create mode 100644 static/img/pdf-tools-2.jpg
+ create mode 100644 static/img/pdf-tools-3.jpg
+ create mode 100644 static/img/pdf-tools-4.jpg
+ create mode 100644 static/img/pdf-tools-C-s.jpg
+ create mode 100644 static/img/pdf-tools-occur.jpg
+ create mode 100644 static/img/peep-dired_ex1.jpeg
+ create mode 100644 static/img/peep-dired_ex2.jpeg
+ create mode 100644 static/img/peep-dired_ex3.jpg
+ create mode 100644 static/img/peep-dired_ex3.psd
+ create mode 100644 static/img/portrait.jpg
+ create mode 100644 static/img/ref-html.jpg
+ create mode 100644 static/img/ref-pdf.jpg
+ create mode 100644 static/img/reftex-2.jpg
+ create mode 100644 static/img/reftex.jpg
+ create mode 100644 static/img/skim-1.jpg
+ create mode 100644 static/img/swiper-1a.jpg
+ create mode 100644 static/img/swiper-2a.jpg
+ create mode 100644 static/img/swiper-3.jpg
+ create mode 100644 static/img/symbol-overlay.jpg
+ create mode 100644 static/img/test.pdf
+ create mode 100644 static/img/whitespace.jpg
+ create mode 100644 static/img/word-1.jpg
+ create mode 100644 static/img/word-fixed.jpg
+ create mode 100644 static/img/word-tree.jpg
+ create mode 100644 static/img/wrap.jpg
+ create mode 100644 static/img/wrap2.jpg
+ create mode 100644 static/img/wrap3.jpg
+ create mode 100644 static/ox-hugo/Barplot1.png
+ create mode 100644 static/ox-hugo/Barplot1_anno_color.png
+ create mode 100644 static/ox-hugo/Boxplot1.png
+ create mode 100644 static/ox-hugo/Boxplot1_anno.png
+ create mode 100644 static/ox-hugo/Boxplot1_anno_color.png
+ create mode 100644 static/ox-hugo/Boxplot1mean.png
+ create mode 100644 static/ox-hugo/Boxplot1mean_anno.png
+ create mode 100644 static/ox-hugo/Boxplot1mean_anno_color.png
+ create mode 100644 static/ox-hugo/Boxplot2.png
+ create mode 100644 static/ox-hugo/Combined.png
+ create mode 100644 static/ox-hugo/DefaultPlot.png
+ create mode 100644 static/ox-hugo/Drug1.png
+ create mode 100644 static/ox-hugo/Drug2.png
+ create mode 100644 static/ox-hugo/ModifiedPlot.png
+ create mode 100644 static/ox-hugo/horizontal_lineplot.png
+ create mode 100644 static/ox-hugo/test1.png
+ create mode 100644 static/ox-hugo/test2.png
+ create mode 100644 static/ox-hugo/vertical_lineplot.png
+ create mode 100644 static/ox-hugo/vertical_lineplot.tiff
+ create mode 100644 static/ox-hugo/vertical_lineplot2.png
+ create mode 100644 static/ox-hugo/vertical_lineplot3.png
+ create mode 100644 static/ox-hugo/vertical_lineplot4.png
+ create mode 100644 static/ox-hugo/vertical_lineplotA.png
+[KEnumerating objects: 546, done.
+[KCounting objects:   0% (1/546)[KCounting objects:   1% (6/546)[KCounting objects:   2% (11/546)[KCounting objects:   3% (17/546)[KCounting objects:   4% (22/546)[KCounting objects:   5% (28/546)[KCounting objects:   6% (33/546)[KCounting objects:   7% (39/546)[KCounting objects:   8% (44/546)[KCounting objects:   9% (50/546)[KCounting objects:  10% (55/546)[KCounting objects:  11% (61/546)[KCounting objects:  12% (66/546)[KCounting objects:  13% (71/546)[KCounting objects:  14% (77/546)[KCounting objects:  15% (82/546)[KCounting objects:  16% (88/546)[KCounting objects:  17% (93/546)[KCounting objects:  18% (99/546)[KCounting objects:  19% (104/546)[KCounting objects:  20% (110/546)[KCounting objects:  21% (115/546)[KCounting objects:  22% (121/546)[KCounting objects:  23% (126/546)[KCounting objects:  24% (132/546)[KCounting objects:  25% (137/546)[KCounting objects:  26% (142/546)[KCounting objects:  27% (148/546)[KCounting objects:  28% (153/546)[KCounting objects:  29% (159/546)[KCounting objects:  30% (164/546)[KCounting objects:  31% (170/546)[KCounting objects:  32% (175/546)[KCounting objects:  33% (181/546)[KCounting objects:  34% (186/546)[KCounting objects:  35% (192/546)[KCounting objects:  36% (197/546)[KCounting objects:  37% (203/546)[KCounting objects:  38% (208/546)[KCounting objects:  39% (213/546)[KCounting objects:  40% (219/546)[KCounting objects:  41% (224/546)[KCounting objects:  42% (230/546)[KCounting objects:  43% (235/546)[KCounting objects:  44% (241/546)[KCounting objects:  45% (246/546)[KCounting objects:  46% (252/546)[KCounting objects:  47% (257/546)[KCounting objects:  48% (263/546)[KCounting objects:  49% (268/546)[KCounting objects:  50% (273/546)[KCounting objects:  51% (279/546)[KCounting objects:  52% (284/546)[KCounting objects:  53% (290/546)[KCounting objects:  54% (295/546)[KCounting objects:  55% (301/546)[KCounting objects:  56% (306/546)[KCounting objects:  57% (312/546)[KCounting objects:  58% (317/546)[KCounting objects:  59% (323/546)[KCounting objects:  60% (328/546)[KCounting objects:  61% (334/546)[KCounting objects:  62% (339/546)[KCounting objects:  63% (344/546)[KCounting objects:  64% (350/546)[KCounting objects:  65% (355/546)[KCounting objects:  66% (361/546)[KCounting objects:  67% (366/546)[KCounting objects:  68% (372/546)[KCounting objects:  69% (377/546)[KCounting objects:  70% (383/546)[KCounting objects:  71% (388/546)[KCounting objects:  72% (394/546)[KCounting objects:  73% (399/546)[KCounting objects:  74% (405/546)[KCounting objects:  75% (410/546)[KCounting objects:  76% (415/546)[KCounting objects:  77% (421/546)[KCounting objects:  78% (426/546)[KCounting objects:  79% (432/546)[KCounting objects:  80% (437/546)[KCounting objects:  81% (443/546)[KCounting objects:  82% (448/546)[KCounting objects:  83% (454/546)[KCounting objects:  84% (459/546)[KCounting objects:  85% (465/546)[KCounting objects:  86% (470/546)[KCounting objects:  87% (476/546)[KCounting objects:  88% (481/546)[KCounting objects:  89% (486/546)[KCounting objects:  90% (492/546)[KCounting objects:  91% (497/546)[KCounting objects:  92% (503/546)[KCounting objects:  93% (508/546)[KCounting objects:  94% (514/546)[KCounting objects:  95% (519/546)[KCounting objects:  96% (525/546)[KCounting objects:  97% (530/546)[KCounting objects:  98% (536/546)[KCounting objects:  99% (541/546)[KCounting objects: 100% (546/546)[KCounting objects: 100% (546/546), done.
+Delta compression using up to 8 threads
+[KCompressing objects:   0% (1/503)[KCompressing objects:   1% (6/503)[KCompressing objects:   2% (11/503)[KCompressing objects:   3% (16/503)[KCompressing objects:   4% (21/503)[KCompressing objects:   5% (26/503)[KCompressing objects:   6% (31/503)[KCompressing objects:   7% (36/503)[KCompressing objects:   8% (41/503)[KCompressing objects:   9% (46/503)[KCompressing objects:  10% (51/503)[KCompressing objects:  11% (56/503)[KCompressing objects:  12% (61/503)[KCompressing objects:  13% (66/503)[KCompressing objects:  14% (71/503)[KCompressing objects:  15% (76/503)[KCompressing objects:  16% (81/503)[KCompressing objects:  17% (86/503)[KCompressing objects:  18% (91/503)[KCompressing objects:  19% (96/503)[KCompressing objects:  20% (101/503)[KCompressing objects:  21% (106/503)[KCompressing objects:  22% (111/503)[KCompressing objects:  23% (116/503)[KCompressing objects:  24% (121/503)[KCompressing objects:  25% (126/503)[KCompressing objects:  26% (131/503)[KCompressing objects:  27% (136/503)[KCompressing objects:  28% (141/503)[KCompressing objects:  29% (146/503)[KCompressing objects:  30% (151/503)[KCompressing objects:  31% (156/503)[KCompressing objects:  32% (161/503)[KCompressing objects:  33% (166/503)[KCompressing objects:  34% (172/503)[KCompressing objects:  35% (177/503)[KCompressing objects:  36% (182/503)[KCompressing objects:  37% (187/503)[KCompressing objects:  38% (192/503)[KCompressing objects:  39% (197/503)[KCompressing objects:  40% (202/503)[KCompressing objects:  41% (207/503)[KCompressing objects:  42% (212/503)[KCompressing objects:  43% (217/503)[KCompressing objects:  44% (222/503)[KCompressing objects:  45% (227/503)[KCompressing objects:  46% (232/503)[KCompressing objects:  47% (237/503)[KCompressing objects:  48% (242/503)[KCompressing objects:  49% (247/503)[KCompressing objects:  50% (252/503)[KCompressing objects:  51% (257/503)[KCompressing objects:  52% (262/503)[KCompressing objects:  53% (267/503)[KCompressing objects:  54% (272/503)[KCompressing objects:  55% (277/503)[KCompressing objects:  56% (282/503)[KCompressing objects:  57% (287/503)[KCompressing objects:  58% (292/503)[KCompressing objects:  59% (297/503)[KCompressing objects:  60% (302/503)[KCompressing objects:  61% (307/503)[KCompressing objects:  62% (312/503)[KCompressing objects:  63% (317/503)[KCompressing objects:  64% (322/503)[KCompressing objects:  65% (327/503)[KCompressing objects:  66% (332/503)[KCompressing objects:  67% (338/503)[KCompressing objects:  68% (343/503)[KCompressing objects:  69% (348/503)[KCompressing objects:  70% (353/503)[KCompressing objects:  71% (358/503)[KCompressing objects:  72% (363/503)[KCompressing objects:  73% (368/503)[KCompressing objects:  74% (373/503)[KCompressing objects:  75% (378/503)[KCompressing objects:  76% (383/503)[KCompressing objects:  77% (388/503)[KCompressing objects:  78% (393/503)[KCompressing objects:  79% (398/503)[KCompressing objects:  80% (403/503)[KCompressing objects:  81% (408/503)[KCompressing objects:  82% (413/503)[KCompressing objects:  83% (418/503)[KCompressing objects:  84% (423/503)[KCompressing objects:  85% (428/503)[KCompressing objects:  86% (433/503)[KCompressing objects:  87% (438/503)[KCompressing objects:  88% (443/503)[KCompressing objects:  89% (448/503)[KCompressing objects:  90% (453/503)[KCompressing objects:  91% (458/503)[KCompressing objects:  91% (460/503)[KCompressing objects:  92% (463/503)[KCompressing objects:  93% (468/503)[KCompressing objects:  94% (473/503)[KCompressing objects:  95% (478/503)[KCompressing objects:  96% (483/503)[KCompressing objects:  97% (488/503)[KCompressing objects:  98% (493/503)[KCompressing objects:  98% (496/503)[KCompressing objects:  99% (498/503)[KCompressing objects: 100% (503/503)[KCompressing objects: 100% (503/503), done.
+[KWriting objects:   0% (1/530)[KWriting objects:   1% (6/530)[KWriting objects:   2% (11/530)[KWriting objects:   3% (16/530)[KWriting objects:   4% (22/530)[KWriting objects:   5% (27/530)[KWriting objects:   6% (32/530)[KWriting objects:   7% (38/530)[KWriting objects:   8% (43/530)[KWriting objects:   9% (48/530)[KWriting objects:  10% (53/530)[KWriting objects:  11% (59/530)[KWriting objects:  12% (64/530)[KWriting objects:  13% (69/530)[KWriting objects:  13% (74/530), 1.07 MiB | 908.00 KiB/s[KWriting objects:  14% (75/530), 1.07 MiB | 908.00 KiB/s[KWriting objects:  15% (80/530), 1.07 MiB | 908.00 KiB/s[KWriting objects:  16% (85/530), 1.07 MiB | 908.00 KiB/s[KWriting objects:  17% (91/530), 1.07 MiB | 908.00 KiB/s[KWriting objects:  18% (96/530), 2.77 MiB | 1.43 MiB/s[KWriting objects:  19% (101/530), 2.77 MiB | 1.43 MiB/s[KWriting objects:  20% (106/530), 2.77 MiB | 1.43 MiB/s[KWriting objects:  21% (112/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  22% (117/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  23% (122/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  24% (128/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  25% (133/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  26% (138/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  27% (144/530), 4.10 MiB | 1.69 MiB/s[KWriting objects:  27% (147/530), 8.13 MiB | 2.65 MiB/s[KWriting objects:  28% (149/530), 8.13 MiB | 2.65 MiB/s[KWriting objects:  29% (154/530), 8.13 MiB | 2.65 MiB/s[KWriting objects:  30% (159/530), 8.13 MiB | 2.65 MiB/s[KWriting objects:  31% (165/530), 8.13 MiB | 2.65 MiB/s[KWriting objects:  32% (170/530), 9.27 MiB | 2.55 MiB/s[KWriting objects:  33% (175/530), 9.27 MiB | 2.55 MiB/s[KWriting objects:  34% (181/530), 9.27 MiB | 2.55 MiB/s[KWriting objects:  35% (186/530), 9.27 MiB | 2.55 MiB/s[KWriting objects:  36% (191/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  37% (197/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  38% (202/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  39% (207/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  40% (212/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  41% (218/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  42% (223/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  43% (229/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  44% (234/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  45% (239/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  46% (244/530), 10.78 MiB | 2.50 MiB/s[KWriting objects:  46% (247/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  47% (250/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  48% (255/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  49% (260/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  50% (265/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  51% (271/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  52% (276/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  53% (281/530), 12.50 MiB | 2.50 MiB/s[KWriting objects:  54% (287/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  55% (292/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  56% (297/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  57% (303/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  57% (307/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  58% (308/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  59% (313/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  60% (318/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  61% (324/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  62% (329/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  63% (334/530), 14.63 MiB | 2.56 MiB/s[KWriting objects:  64% (340/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  65% (345/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  66% (350/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  67% (356/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  68% (361/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  69% (366/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  70% (371/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  71% (377/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  72% (382/530), 17.10 MiB | 2.69 MiB/s[KWriting objects:  72% (384/530), 19.88 MiB | 3.32 MiB/s[KWriting objects:  73% (387/530), 19.88 MiB | 3.32 MiB/s[KWriting objects:  73% (392/530), 26.37 MiB | 4.05 MiB/s[KWriting objects:  74% (393/530), 26.37 MiB | 4.05 MiB/s[KWriting objects:  74% (396/530), 34.49 MiB | 4.71 MiB/s[KWriting objects:  75% (398/530), 34.49 MiB | 4.71 MiB/s[KWriting objects:  76% (403/530), 34.49 MiB | 4.71 MiB/s[KWriting objects:  77% (409/530), 34.49 MiB | 4.71 MiB/s[KWriting objects:  78% (414/530), 40.28 MiB | 5.71 MiB/s[KWriting objects:  79% (419/530), 40.28 MiB | 5.71 MiB/s[KWriting objects:  80% (424/530), 40.28 MiB | 5.71 MiB/s[KWriting objects:  80% (426/530), 43.12 MiB | 6.10 MiB/s[KWriting objects:  81% (430/530), 43.12 MiB | 6.10 MiB/s[KWriting objects:  82% (435/530), 47.25 MiB | 6.77 MiB/s[KWriting objects:  82% (436/530), 47.25 MiB | 6.77 MiB/s[KWriting objects:  83% (440/530), 64.70 MiB | 9.22 MiB/s[KWriting objects:  83% (445/530), 78.03 MiB | 10.58 MiB/s[KWriting objects:  84% (446/530), 78.03 MiB | 10.58 MiB/s[KWriting objects:  85% (451/530), 86.57 MiB | 11.38 MiB/s[KWriting objects:  85% (453/530), 94.85 MiB | 12.44 MiB/s[KWriting objects:  86% (456/530), 101.38 MiB | 12.58 MiB/s[KWriting objects:  87% (462/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  88% (467/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  88% (469/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  89% (472/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  90% (477/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  91% (483/530), 110.87 MiB | 14.03 MiB/s[KWriting objects:  92% (488/530), 118.29 MiB | 14.76 MiB/s[KWriting objects:  93% (493/530), 118.29 MiB | 14.76 MiB/s[KWriting objects:  94% (499/530), 122.23 MiB | 14.14 MiB/s[KWriting objects:  95% (504/530), 122.23 MiB | 14.14 MiB/s[KWriting objects:  96% (509/530), 122.23 MiB | 14.14 MiB/s[KWriting objects:  97% (515/530), 122.23 MiB | 14.14 MiB/s[KWriting objects:  98% (520/530), 122.23 MiB | 14.14 MiB/s[KWriting objects:  99% (525/530), 122.23 MiB | 14.14 MiB/s[KWriting objects: 100% (530/530), 122.23 MiB | 14.14 MiB/s[KWriting objects: 100% (530/530), 131.20 MiB | 8.04 MiB/s, done.
+Total 530 (delta 20), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/20)[Kremote: Resolving deltas:  50% (10/20)[Kremote: Resolving deltas:  55% (11/20)[Kremote: Resolving deltas:  65% (13/20)[Kremote: Resolving deltas:  70% (14/20)[Kremote: Resolving deltas:  75% (15/20)[Kremote: Resolving deltas:  80% (16/20)[Kremote: Resolving deltas:  85% (17/20)[Kremote: Resolving deltas:  90% (18/20)[Kremote: Resolving deltas:  95% (19/20)[Kremote: Resolving deltas: 100% (20/20)[Kremote: Resolving deltas: 100% (20/20), completed with 5 local objects.[K
+To https://github.com/taipapamotohus/academic-kickstart
+   98a99bf..eb43ba1  master -> master
+bash-3.2$ exit
+exit
+
+Script done on Sun Aug 25 00:58:48 2019
