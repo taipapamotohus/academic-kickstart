@@ -2,10 +2,10 @@
 # Hero widget.
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "完璧な秋の日"
+# title = "完璧な秋の日"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 # hero_media = "hero-academic.png"
@@ -24,7 +24,7 @@ title = "完璧な秋の日"
   # gradient_end = "#2b94c3"
 
   # Background image.
-image = "Istanbul-8.jpg"  # Name of image in `static/img/`.
+# image = "Istanbul-8.jpg"  # Name of image in `static/img/`.
  image_darken = 0.1  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).
@@ -48,4 +48,4 @@ image = "Istanbul-8.jpg"  # Name of image in `static/img/`.
 #   label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
-とりあえず備忘録として :rocket:
+# とりあえず備忘録として :rocket:
