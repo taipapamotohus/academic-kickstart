@@ -4881,7 +4881,6 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
      #+attr_html: :width 100% :target _self
      [[./static/img/Treemacs-help.jpg]]
-
      使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， *Winum & ace-window compatibility* と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， *(define-key winum-keymap (kbd "M-0") #'treemacs-select-window)* と書いてある．つまり，横や縦に並べたバッファ間の移動は， *C-x o* の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， *M-0* を打てば良い．下図は，先ほどの図の状態で， *C-x o* を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．
 
 なお，winumのインストールについては，[[https://github.com/deb0ch/emacs-winum][emacs-winum]] を参照されたい．
@@ -4889,4 +4888,9 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
      #+attr_html: :width 100% :target _self
      [[./static/img/Treemacs-winum.jpg]]
 
-     まだ使い始めたばかりであり，projectileとtreemacsについて，まだまだ理解しないといけないことがたくさんあるが，日常的に使用できるところまではなんとかなったかな．．．
+     とは言うものの，やはり，マウスを使う方が便利なこともある．Treemacsはmouse interfaceにも完全に対応しており，右クリックでpopup-menuが出るようになっている（下図参照）．よくできている．
+
+     #+attr_html: :width 100% :target _self
+     [[./static/img/Treemacs-mouse.jpg]]
+
+    まだ使い始めたばかりであり，projectileとtreemacsについて，まだまだ理解しないといけないことがたくさんあるが，日常的に使用できるところまではなんとかなったかな．．．
