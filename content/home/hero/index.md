@@ -24,8 +24,8 @@ title = "完璧な秋の日"
   # gradient_end = "#2b94c3"
 
   # Background image.
-  image = "Istanbul-8.jpg"  # Name of image in `static/img/`.
-  image_darken = 0.1  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
+image = "Istanbul-8.jpg"  # Name of image in `static/img/`.
+ image_darken = 0.1  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).
   text_color_light = true
@@ -48,4 +48,4 @@ title = "完璧な秋の日"
 #   label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
-とりあえず備忘録として :rocket:
+とりあえず備忘録として :rocket:
