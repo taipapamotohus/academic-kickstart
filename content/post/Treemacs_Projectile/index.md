@@ -2,7 +2,7 @@
 title = "Treemacs and Projectile"
 author = ["taipapa"]
 date = 2019-08-25
-lastmod = 2019-08-31T21:19:48+09:00
+lastmod = 2019-09-01T15:26:52+09:00
 tags = ["emacs", "projectile", "treemacs", "helm", "project"]
 type = "post"
 draft = false
@@ -187,7 +187,8 @@ MacのFinderに相当するのは，EmacsではDiredであろう．しかし，�
 
 ところで，上述したようなキーバインドを覚える必要はない．treemacsのバッファにいるときに，？を叩けば，下図のごとく，下にヘルプバッファが開く．楽チンである．ファイルやディレクトリやプロジェクトの追加，削除，名前の変更などはもちろん網羅しており，ファイルの開け方も横に並べたり，縦に並べたりと色々できるようになっている．
 
-<img src="/img/Treemacs-help.jpg" alt="Treemacs-help.jpg" width="100%" />
+{{< figure src="/img/Treemacs-help.jpg" width="100%" target="_self" >}}
+
 使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， **Winum & ace-window compatibility** と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， **(define-key winum-keymap (kbd "M-0") #'treemacs-select-window)** と書いてある．つまり，横や縦に並べたバッファ間の移動は， **C-x o** の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， **M-0** を打てば良い．下図は，先ほどの図の状態で， **C-x o** を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．
 
 なお，winumのインストールについては，[emacs-winum](https://github.com/deb0ch/emacs-winum) を参照されたい．

@@ -4709,7 +4709,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
      Hugo 0.46からSASS/SCSSがサポートされた．
 
 
-** Treemacs and Projectile          :emacs:projectile:treemacs:helm:project:
+** COMMENT Treemacs and Projectile          :emacs:projectile:treemacs:helm:project:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: Treemacs_Projectile
    :EXPORT_FILE_NAME: index
