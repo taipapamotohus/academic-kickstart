@@ -4555,7 +4555,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
    で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（[[../how-to-update-hugo-and-academic-theme-part2][How to update hugo and academic theme (Part2)]]）を参照されたい．
 
 
-** COMMENT How to update hugo and academic theme (Part2)
+** COMMENT How to update hugo and academic theme (Part2) :hugo:academic:theme:upgrade:ox_hugo:org_mode:emacs:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-update-hugo-and-academic-theme--part2
    :EXPORT_FILE_NAME: index
@@ -4709,7 +4709,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
      Hugo 0.46からSASS/SCSSがサポートされた．
 
 
-** COMMENT Treemacs and Projectile          :emacs:projectile:treemacs:helm:project:
+** Treemacs and Projectile          :emacs:projectile:treemacs:helm:project:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: Treemacs_Projectile
    :EXPORT_FILE_NAME: index
@@ -4723,6 +4723,8 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
    :END:
 
    MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．  <!--more-->
+
+   {{{toc(2)}}}
 
 *** Projectile
 **** References
@@ -4894,3 +4896,18 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
      [[./static/img/Treemacs-mouse.jpg]]
 
     まだ使い始めたばかりであり，projectileとtreemacsについて，まだまだ理解しないといけないことがたくさんあるが，日常的に使用できるところまではなんとかなったかな．．．
+
+** COMMENT How to update hugo and academic theme (Part3)
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: how-to-update-hugo-and-academic-theme--part3
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2019-09-01
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "Hugoとacademic テーマのアップデート　その3"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Beyoğlu, Istanbul"))
+   :END:
+
+   先日，ブログのアップデートについて2回に分けてまとめたが（[[../how-to-upgrade-hugo-and-academic-theme][How to update hugo and academic theme (Part1)]], [[../how-to-update-hugo-and-academic-theme-part2][How to update hugo and academic theme (Part2)]]，読み直してみると，hugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，纏めておくことにした．
