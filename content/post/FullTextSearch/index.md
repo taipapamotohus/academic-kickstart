@@ -2,26 +2,20 @@
 title = "Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う"
 author = ["taipapa"]
 date = 2019-07-24
-lastmod = 2019-08-14T14:54:20+09:00
+lastmod = 2019-09-17T21:44:08+09:00
 tags = ["macos", "mojave", "full-text-search", "hyperestraier", "pdf"]
 type = "post"
 draft = false
 weight = 1
-
-[image]
-  placement = 3
+subtitle = "（2019年9月17日修正あり）"
+[header]
+  image = "headers/Attica.jpg"
   caption = "Attica, Greece"
-  focal_point = "Smart"
-  preview_only = false
-
-# [header]
-#  image = "headers/Attica.jpg"
-#  caption = "Attica, Greece"
 +++
 
 論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
 
-という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である． <!--more--> hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．<!--more--> hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
 
 **セットアップは結構面倒だが，非常に便利で，オススメである！**
 
@@ -222,6 +216,16 @@ $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
 ```
 
+{{% alert note %}}
+**2019年9月17日修正：**  上記の後二者はdirectoryを間違えている．下記が正しい．
+{{% /alert %}}
+
+```sh
+$ cd /Users/taipapa/Sites/pdf
+$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+```
+
 
 ### indexの更新 {#indexの更新}
 
@@ -232,6 +236,17 @@ $ cd /Users/taipapa/Sites/pdf
 $ estcmd gather -pc UTF-8 -cl -fx ".pdf" "H@estfxpdftohtml" -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+```
+
+{{% alert note %}}
+**2019年9月17日修正：**  上記の後二者はdirectoryを間違えている．下記が正しい．
+{{% /alert %}}
+
+```sh
+$ cd /Users/taipapa/Sites/pdf
+$ estcmd gather -pc UTF-8 -cl -fx ".pdf" "H@estfxpdftohtml" -il ja -lf -1 -sd -cm -um casket PDFs
+$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
 ```
 
 最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの [インデックス更新の自動化](https://skalldan.wordpress.com/2011/07/01/hyper-estraier-で-pdf-文書管理/#sec-3) を参考にされたい．
@@ -245,14 +260,14 @@ $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
 $ cd /Users/taipapa/Sites/pdf
 $ estcmd search -vh casket HSP27
 --------[02D18ACF711B9586]--------
-VERSION	1.0
-NODE	local
-HIT	288
-HINT#1	hsp27	288
-TIME	0.001226
-DOCNUM	11734
-WORDNUM	1354563
-VIEW	HUMAN
+VERSION  1.0
+NODE     local
+HIT      288
+HINT#1   hsp27   288
+TIME     0.001226
+DOCNUM   11734
+WORDNUM  1354563
+VIEW     HUMAN
 ..........
 ```
 
@@ -308,21 +323,25 @@ Server built:   Feb 22 2019 20:20:11
 
 -   Apacheの起動
 
-```sh
-$ sudo apachectl start
-```
+    ```sh
+    $ sudo apachectl start
+    ```
 
--   Apacheの停止
+    -   Apacheの停止
 
-```sh
-$ sudo apachectl stop
-```
+    <!--listend-->
 
--   Apacheの再起動
+    ```sh
+    $ sudo apachectl stop
+    ```
 
-```sh
-$ sudo apachectl restart
-```
+    -   Apacheの再起動
+
+    <!--listend-->
+
+    ```sh
+    $ sudo apachectl restart
+    ```
 
 これでApacheを起動したので，hyperestraierに含まれている検索用CGI scriptを利用する．
 
@@ -499,7 +518,7 @@ Require all granted
 内容を簡単に説明する．
 
 -   Directory ([Directory ディレクティブ](https://httpd.apache.org/docs/2.4/ja/mod/core.html#directory)): 指定されたディレクトリとそのサブディレクトリにのみ ディレクティブを適用させるためには、 Directory と /Directory を対として、ディレクティブ群を囲む．以下はディレクティブの説明
--   AddHandler ([AddHandler ディレクティブ](https://httpd.apache.org/docs/2.4/ja/mod/mod%5Fmime.html#addhandler) ): ファイル名の拡張子を指定されたハンドラにマップする．"AddHandler cgi-script cgi" により，/Users/taipapa/Sites/の配下にある拡張子 ".cgi" で終わるファイルを CGI スクリプトとして扱うようになる．
+-   AddHandler ([AddHandler ディレクティブ](https://httpd.apache.org/docs/2.4/ja/mod/mod%5Fmime.html#addhandler) ): ファイル名の拡張子を指定されたハンドラにマップする．"AddHandler cgi-script cgi" により，/Users/taipapa/Sites/の配下にある拡張子 "." で終わるファイルを CGI スクリプトとして扱うようになる．
 -   AllowOverride ([AllowOverride ディレクティブ](https://httpd.apache.org/docs/2.4/ja/mod/core.html#allowoverride)): このディレクティブが All に設定されている時には、 .htaccess という コンテキスト を持つ 全てのディレクティブが利用できる．
 -   Options ([Options ディレクティブ](https://httpd.apache.org/docs/2.4/ja/mod/core.html#options)): ディレクトリに対して使用可能な機能を設定する．個々の機能はリンク先を参照．今回重要なのは， **ExecCGI** で，これはmod\_cgiによるCGI scriptの実行を許可する．
 -   Require (参照：[Apache 2.4 設定ファイルの記述例](https://qiita.com/100/items/ab31e57fcc66ac661d5c)): サーバーのディレクトリに接続してくるクライアントについて、許可・拒否する条件を指定するディレクティブ．昔はAllow ディレクティブやDeny ディレクティブを利用していた． **"Require all granted" は、すべてのクライアントからの接続を許可する．** "Require all denied" は、すべてのクライアントからの接続を拒否する．
