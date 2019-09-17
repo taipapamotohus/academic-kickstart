@@ -3630,7 +3630,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
     mojaveのライブ変換，とにかく一度使ってみることをお勧めする．
 
-** COMMENT Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う :macos:mojave:full_text_search:hyperestraier:pdf:
+** Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う :macos:mojave:full_text_search:hyperestraier:pdf:
    :PROPERTIES:
    :EXPORT_FILE_NAME: FullTextSearch
    :EXPORT_DATE: 2019-07-24
@@ -3638,6 +3638,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
    :EXPORT_HUGO_DRAFT: false
    :EXPORT_AUTHOR: "taipapa"
    :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "（2019年9月17日修正あり）"
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "headers/Attica.jpg") (caption . "Attica, Greece"))
    :END:
 
@@ -3790,6 +3791,17 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
        $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
      #+end_src
 
+       {{% alert note %}}
+       *2019年9月17日修正：*  上記の後二者はdirectoryを間違えている．下記が正しい．
+       {{% /alert %}}
+
+     #+begin_src sh
+       $ cd /Users/taipapa/Sites/pdf
+       $ estcmd optimize /Users/taipapa/Sites/pdf/casket
+       $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+     #+end_src
+
+
 **** indexの更新
      前述の3つのコマンドを打てば良い．
      #+begin_src sh
@@ -3798,7 +3810,18 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
        $ estcmd optimize /Library/WebServer/Documents/pdf/casket
        $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
      #+end_src
-     最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの [[https://skalldan.wordpress.com/2011/07/01/hyper-estraier-で-pdf-文書管理/#sec-3][インデックス更新の自動化]] を参考にされたい．
+
+       {{% alert note %}}
+       *2019年9月17日修正：*  上記の後二者はdirectoryを間違えている．下記が正しい．
+       {{% /alert %}}
+
+     #+begin_src sh
+       $ cd /Users/taipapa/Sites/pdf
+       $ estcmd gather -pc UTF-8 -cl -fx ".pdf" "H@estfxpdftohtml" -il ja -lf -1 -sd -cm -um casket PDFs
+       $ estcmd optimize /Users/taipapa/Sites/pdf/casket
+       $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+     #+end_src
+    最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの [[https://skalldan.wordpress.com/2011/07/01/hyper-estraier-で-pdf-文書管理/#sec-3][インデックス更新の自動化]] を参考にされたい．
 
 **** 検索のテスト
      試しにterminalで検索してみる．
@@ -4898,7 +4921,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
     まだ使い始めたばかりであり，projectileとtreemacsについて，まだまだ理解しないといけないことがたくさんあるが，日常的に使用できるところまではなんとかなったかな．．．
 
-** How to update hugo and academic theme (Part3) :hugo:academic:theme:upgrade:ox_hugo:org_mode:emacs:
+** COMMENT How to update hugo and academic theme (Part3) :hugo:academic:theme:upgrade:ox_hugo:org_mode:emacs:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-update-hugo-and-academic-theme--part3
    :EXPORT_FILE_NAME: index
