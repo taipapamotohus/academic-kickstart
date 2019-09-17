@@ -2,14 +2,14 @@
 title = "Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う"
 author = ["taipapa"]
 date = 2019-07-24
-lastmod = 2019-09-17T21:44:08+09:00
+lastmod = 2019-09-17T21:59:41+09:00
 tags = ["macos", "mojave", "full-text-search", "hyperestraier", "pdf"]
 type = "post"
 draft = false
 weight = 1
 subtitle = "（2019年9月17日修正あり）"
-[header]
-  image = "headers/Attica.jpg"
+[image]
+  placement = 3
   caption = "Attica, Greece"
 +++
 

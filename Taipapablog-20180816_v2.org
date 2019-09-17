@@ -3640,7 +3640,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
    :EXPORT_AUTHOR: "taipapa"
    :EXPORT_HUGO_TYPE: post
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "（2019年9月17日修正あり）"
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "headers/Attica.jpg") (caption . "Attica, Greece"))
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Attica, Greece"))
    :END:
    論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
 
