@@ -3630,7 +3630,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
     mojaveのライブ変換，とにかく一度使ってみることをお勧めする．
 
-** Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う :macos:mojave:full_text_search:hyperestraier:pdf:
+** COMMENT Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う :macos:mojave:full_text_search:hyperestraier:pdf:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: FullTextSearch
    :EXPORT_FILE_NAME: index
@@ -5019,3 +5019,74 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
    \
  今回は本当に殴り書きメモのような内容．それにhugoに関することは全然なくて，academicのことしか書いてない．看板に偽りありだな．．．(^^;;;
+**  Org-rifle                              :emacs:org_mode:org_rifle:search:
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: org-rifle
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2019-10-14
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Samuel Beckett Bridge, Dublin"))
+   :END:
+
+   学会続きで，久方ぶりの更新である．org fileの中を検索する際に，[[../swiper_migemo][Swiper, ivy, avy, migemoによるEmacsの検索強化]]で取り上げた *swiper* を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．
+
+<!--more-->
+
+      {{{toc(2)}}}
+
+*** References
+    - [[https://github.com/alphapapa/org-rifle][org-rifle]]  ご本家
+    - [[https://dustinlacewell.github.io/emacs.d/#org7646621][helm-org-rifle]]
+    - [[http://bnbeckwith.com/bnb-emacs/#orgc5aa916][Org Rifle]]  Rifle through my org-mode entries.
+
+ご本家サイトの最初に，有名な米海兵隊信条（The Creed of a United States Marine）が，以下のように引用されている．
+
+This is my rifle. There are many like it, but this one is mine. My rifle is my best friend. It is my life. I must master it as I must master my life.
+
+ rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．
+
+*** Install
+    いつものように，init.orgに下記のように書き込む．
+    #+begin_src lisp
+      ,#+begin_src emacs-lisp
+      (use-package helm-org-rifle
+        :ensure t
+        :after (helm org)
+        :bind
+        ("s-c r r" . helm-org-rifle)
+        ("s-c r a" . helm-org-rifle-agenda-files)
+        ("s-c r ." . helm-org-rifle-current-buffer)
+        ("s-c r d" . helm-org-rifle-directories)
+        ("s-c r f" . helm-org-rifle-files)
+        ("s-c r D" . helm-org-rifle-org-directory)
+        ("s-c o o" . helm-org-rifle-occur)
+        ("s-c o a" . helm-org-rifle-occur-agenda-files)
+        ("s-c o ." . helm-org-rifle-occur-current-buffer)
+        ("s-c o d" . helm-org-rifle-occur-directories)
+        ("s-c o d" . helm-org-rifle-occur-directories)
+        ("s-c o f" . helm-org-rifle-occur-files)
+        ("s-c o D" . helm-org-rifle-occur-org-directory))
+      ,#+end_src
+    #+end_src
+    key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．
+
+    また， *helm-org-rifle-show-path を t にセット* することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）
+*** How to use
+    helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．
+
+    例えば，このブログの原稿をemacsで開いているときに，org-mode, export, wordを含む部分を探したいときは，s-c r . としてから，key wordを打てば，まず下図のようになる．下のバッファでハイライトされている部分は，最上位のheadingであるPostの下のsubheadingである「Emacsのorg-modeで論文を書く（その4：．．．」の下位に目的の部分が含まれていることを示す．
+
+     #+attr_html: :width 80% :target _self
+     [[./static/img/org-rifle-1.jpg]]
+
+     さらに，ハイライトされている部分で，C-jと打てば，下図のように，上のバッファが該当する領域にジャンプして表示してくれる．
+
+     #+attr_html: :width 80% :target _self
+     [[./static/img/org-rifle-2.jpg]]
+
+     もちろん，検索対象が明確に分かっていて"hogehoge.jpg"など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．
+
+     さらにもっと色々な使い方ができるようで，該当項目のrefileも可能である．興味のある方は，tabを打ってでてくるメニューを試していただきたい．
