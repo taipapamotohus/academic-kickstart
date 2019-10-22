@@ -5019,7 +5019,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
 
    \
  今回は本当に殴り書きメモのような内容．それにhugoに関することは全然なくて，academicのことしか書いてない．看板に偽りありだな．．．(^^;;;
-**  Org-rifle                              :emacs:org_mode:org_rifle:search:
+**  COMMENT Org-rifle                              :emacs:org_mode:org_rifle:search:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: org-rifle
    :EXPORT_FILE_NAME: index
@@ -5028,6 +5028,7 @@ beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, co
    :EXPORT_HUGO_DRAFT: false
    :EXPORT_AUTHOR: taipapa
    :EXPORT_HUGO_TYPE: post
+  :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "org-mode fileの中をくまなく探してパス付きで表示する"
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Samuel Beckett Bridge, Dublin"))
    :END:
 
@@ -5048,7 +5049,7 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
 
  rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．
 
-*** Install
+*** Installation
     いつものように，init.orgに下記のように書き込む．
     #+begin_src lisp
       ,#+begin_src emacs-lisp
@@ -5074,7 +5075,7 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
     key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．
 
     また， *helm-org-rifle-show-path を t にセット* することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）
-*** How to use
+*** Usage
     helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．
 
     例えば，このブログの原稿をemacsで開いているときに，org-mode, export, wordを含む部分を探したいときは，s-c r . としてから，key wordを打てば，まず下図のようになる．下のバッファでハイライトされている部分は，最上位のheadingであるPostの下のsubheadingである「Emacsのorg-modeで論文を書く（その4：．．．」の下位に目的の部分が含まれていることを示す．
@@ -5090,3 +5091,60 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
      もちろん，検索対象が明確に分かっていて"hogehoge.jpg"など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．
 
      さらにもっと色々な使い方ができるようで，該当項目のrefileも可能である．興味のある方は，tabを打ってでてくるメニューを試していただきたい．
+
+** org-sidebar
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: org-sidebar
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2019-10-17
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+  :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "org-modeのバッファにサイドバーを表示する"
+  :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Christ Church Cathedral, Dublin"))
+   :END:
+  ついにorg-mode用のサイドバーが登場した．最近，精力的にredditに投稿しているalphapapa氏の作った文字通りorg-sidebarがそれである．最初1年ぐらい前に発表され，暫くは様子見をしていたのだが，今回の最新版では色々と改良されており，紹介することにした．なお，前回紹介した[[../org-rifle][org-rifle]]も同氏の作成したパッケージである．
+
+  <!--more-->
+
+  {{{toc(2)}}}
+
+*** References
+    - [[https://github.com/alphapapa/org-sidebar][org-sidebar]]  ご本家
+    - [[https://www.reddit.com/r/emacs/comments/dbsxn7/finally_solving_the_lack_of_a_treeview_navigation/][Finally solving the lack of a tree-view navigation window in Org]]  redditへの投稿記事
+    - [[https://github.com/alphapapa/ts.el][ts.el]]  a date and time library for Emacs
+
+*** Installation
+    いつものように，init.orgに下記のように書き込む．
+    #+begin_src lisp
+      ,#+begin_src emacs-lisp
+      (use-package ts
+        :ensure t)
+
+      (use-package org-sidebar
+        :ensure t
+        :quelpa (org-sidebar :fetcher github :repo "alphapapa/org-sidebar")
+        :bind
+        ("<f1> C-s" . org-sidebar-tree))
+      ,#+end_src
+    #+end_src
+    ただし，まず，ご本家サイトにある通りに後半の部分のみでorg-sidebarをインストールしようとすると，tsがないと文句を言われた．そこで，後半部分はコメントアウトした上で，前半部分を追加し，まず，tsをインストールするようにした．ついで，後半部分のコメントアウトを外して，再度org-sidebarをインストールしたところ，うまくいった．キーバインディングの残りがほとんどなく，とりあえず，sidebarのsに合わせられて，かつ，空いているところということで，org-sidebar-treeをf1 C-sに割り当てた．
+
+*** Usage
+    ご本家サイトに詳細な説明とGIF動画が掲載されている．GTD toolとしてorg-modeを全く使っていない私には， *M-x org-sidebar-tree* だけで十分役に立つことが分かった．同コマンドを打つ，あるいは， *f1 C-s* を打つと下図のような画面となる．
+
+     #+attr_html: :width 100% :target _self
+     [[./static/img/org-sidebar-1.jpg]]
+
+  左側がtreeのwindowであり，このブログの原稿であるorg-mode fileのlevel2までのheadingが表示されている．5094行目のorg-sidebarにカーソルがあり，このheadingが選択されていることを示す．そして，右側には，このheading (org-sidebar)の内容を示すバッファが表示されている．左側のTree windowの中をカーソルで上下して目的のheadingに行きReturnを叩けば，右側にそのheadingの内容のみが表示され，かつ，カーソルがそちらに移る．他のheadingは表示されず，そこにだけ集中できる．なかなかよくできている．
+
+  ここで注意しないといけないのは，swiperやhelm-org-rifle-current-bufferによる検索を行った際に，どのバッファがactiveかで検索範囲が異なることである．右側のバッファでは，そのheadingの内容しか検索しない．Tree windowで行うと，そのファイルの全体を対象として検索する．ただし，結果に飛ぶところでフレームのlayoutが崩れてしまうことがある．そうなると，みやすくする調整に手間がかかる．一方，helm-org-rifleやprojectileのC-c p s gなどは，普通にどのバッファにいても，そのファイル全体を検索するので，org-sidebarを使用している時には，検索にはこちらを使うべきかもしれない．
+
+**** Combination of org-sidebar and treemacs
+     やはり，treeとつくからには，以前に紹介したtreemacs（[[../treemacs_projectile][Treemacs and Projectile]]）との併用を試してみたくなり，やってみたのが，下図である．
+
+     #+attr_html: :width 100% :target _self
+     [[./static/img/org-sidebar-2.jpg]]
+
+     このように併用はもちろん可能ではあるが，フレームの配列が乱れてしまい，それを調整するのに手間取ることがある．目的が違うものなので，一緒にしなくても異なるフレームで使えば良いと思う．

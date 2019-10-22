@@ -2,11 +2,12 @@
 title = "Org-rifle"
 author = ["taipapa"]
 date = 2019-10-14
-lastmod = 2019-10-16T22:40:38+09:00
+lastmod = 2019-10-19T22:12:40+09:00
 tags = ["emacs", "org-mode", "org-rifle", "search"]
 type = "post"
 draft = false
 weight = 1
+subtitle = "org-mode fileの中をくまなく探してパス付きで表示する"
 [image]
   placement = 3
   caption = "Samuel Beckett Bridge, Dublin"
@@ -22,8 +23,8 @@ weight = 1
 <div class="heading">Table of Contents</div>
 
 - [References](#references)
-- [Install](#install)
-- [How to use](#how-to-use)
+- [Installation](#installation)
+- [Usage](#usage)
 
 </div>
 <!--endtoc-->
@@ -42,7 +43,7 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
 rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．
 
 
-## Install {#install}
+## Installation {#installation}
 
 いつものように，init.orgに下記のように書き込む．
 
@@ -73,7 +74,7 @@ key-bindingは諸般の事情により，s-cを使うことにした（s はopti
 また， **helm-org-rifle-show-path を t にセット** することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）
 
 
-## How to use {#how-to-use}
+## Usage {#usage}
 
 helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．
 
