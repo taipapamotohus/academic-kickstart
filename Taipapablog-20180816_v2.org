@@ -5150,7 +5150,7 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
 
      このように併用はもちろん可能ではあるが，フレームの配列が乱れてしまい，それを調整するのに手間取ることがある．目的が違うものなので，一緒にしなくても異なるフレームで使えば良いと思う．
 
-** How to use mark in Emacs (helm-all-mark-rings)
+** How to use mark in Emacs (helm-all-mark-rings)     :emacs:mark:ring:helm:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: mark-and-desktop-saving
    :EXPORT_FILE_NAME: index

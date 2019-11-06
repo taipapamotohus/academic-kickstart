@@ -2,7 +2,8 @@
 title = "How to use mark in Emacs (helm-all-mark-rings)"
 author = ["taipapa"]
 date = 2019-10-27
-lastmod = 2019-11-06T22:03:00+09:00
+lastmod = 2019-11-06T22:09:05+09:00
+tags = ["emacs", "mark", "ring", "helm"]
 type = "post"
 draft = false
 weight = 1
