@@ -2,7 +2,7 @@
 title = "How to create conference posters by latex (beamer)"
 author = ["taipapa"]
 date = 2019-11-22
-lastmod = 2019-12-01T15:07:24+09:00
+lastmod = 2019-12-01T15:14:42+09:00
 tags = ["latex", "beamer", "conference", "poster", "emacs", "Inkscape", "tikz", "overleaf"]
 type = "post"
 draft = false
@@ -181,7 +181,7 @@ texlive (MacTeX)をインストールした時点で入っているので，改�
 
 {{< figure src="/img/Poster-test.jpg" width="100%" target="_self" >}}
 
-このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である.....(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，[LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）](../latexmk) に書いたように， **latexmk -pvc -pdf -view=none document.tex** とすればコンパイルされてpdfが出来上がる．
+このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である.....(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，[LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）](../latexmk) に書いたように， **latexmk -pvc -pdf -view=none document.tex** とすればコンパイルされてpdfが出来上がる．ただし，ファイルの中の画像（pdf）は適当なものと置き換えていただきたい．
 
 -   9行目： **\usetheme{I6dv\_test}** によりスタイルシートを指定している．
 -   45行目： **orientation=landscape** で横長， **orientation=portrait** で縦長になる．実際の大きさは， **width=200,height=100** で合わせる．scaleの部分でも調整する．
