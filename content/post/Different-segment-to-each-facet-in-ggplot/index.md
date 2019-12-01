@@ -7,12 +7,12 @@ tags = ["R", "ggplot2", "facet", "segment", "annotation", "colour", "patchwork"]
 type = "post"
 draft = false
 weight = 1
-[header]
-  image = "headers/CasaRomana.jpg"
+[image]
+  placement = 3
   caption = "Casa Romana dell'Ara Coeli"
 +++
 
-今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom\_segmentやgeom\_textを使う．
+今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom\_segmentやgeom\_textを使う．
 
 <div class="ox-hugo-toc toc">
 <div></div>
@@ -53,7 +53,7 @@ weight = 1
 
 ## Data Preparation {#data-preparation}
 
-まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．
+まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．
 
 ```R
 set.seed(100)
@@ -85,12 +85,12 @@ Using  as id variables
 6 Control 5.318630 3.716555
 ```
 
-これで解析用のデータが出来上がった．一応，差を確認してみる．
+これで解析用のデータが出来上がった．一応，差を確認してみる．
 
 
 ## Tukey multiple comparison {#tukey-multiple-comparison}
 
-Tukeyの多重比較試験を行う．２つの方法で確認しておく．
+Tukeyの多重比較試験を行う．２つの方法で確認しておく．
 
 
 ### TukeyHSD {#tukeyhsd}
@@ -181,12 +181,12 @@ $v
 [1] 24.23474
 ```
 
-以上で，Drug1では物質Xの濃度はコントロールと差がないこと，Drug2ではコントロール，Day1，Day7の間に有意差が認められることが確認された．そのようにデータを作ったので当たり前である．．．(^^;;;;;
+以上で，Drug1では物質Xの濃度はコントロールと差がないこと，Drug2ではコントロール，Day1，Day7の間に有意差が認められることが確認された．そのようにデータを作ったので当たり前である．．．(^^;;;;;
 
 
 ## Boxplot by ggplot2 {#boxplot-by-ggplot2}
 
-ようやくここから上記のデータを使って，ggplot2でboxplotを描いてみる．まずはmeltを用いてwide formatからlong formatへのデータの整形を行う．
+ようやくここから上記のデータを使って，ggplot2でboxplotを描いてみる．まずはmeltを用いてwide formatからlong formatへのデータの整形を行う．
 
 ```R
 DataM <- melt(data_melt.df, id = "Day")
@@ -224,7 +224,7 @@ DataM_summary
 6    Drug2    Day7 20 19.926019 5.9904997 1.3395165
 ```
 
-ついで，ggplot2のggplotでboxplotを描く．個々のデータをgeom\_jitter，あるいは，geom\_pointを用いて重ねてプロットしておく．どちらの方法でも下記のように同じ図になる．
+ついで，ggplot2のggplotでboxplotを描く．個々のデータをgeom\_jitter，あるいは，geom\_pointを用いて重ねてプロットしておく．どちらの方法でも下記のように同じ図になる．
 
 
 ### geom\_jitter {#geom-jitter}
@@ -273,7 +273,7 @@ TestBoxPlot2
 ### Add mean bar {#add-mean-bar}
 
 **Ref:** [combine ggplot facet\_wrap with geom\_segment to draw mean line in scatterplot](https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot)   <br />
-平均値のバーを書き込む．これはgeom\_segmentを使うが，すべてのfacetに書き込むので，単純である．
+平均値のバーを書き込む．これはgeom\_segmentを使うが，すべてのfacetに書き込むので，単純である．
 
 ```R
 TestBoxPlot3 <- TestBoxPlot +
@@ -296,7 +296,7 @@ TestBoxPlot3
 
 ### Dataframe for annotation {#dataframe-for-annotation}
 
-ここからが本番である．上記で作成したグラフを見ながら，どこからどこに線を引けばよいのか，どこにasteriskを置けばよいのか大体の見当をつけたうえで，注釈用のデータフレームを別途作成する．これは手作業でやらざるを得ない．できたグラフを見て微調整をしていく．
+ここからが本番である．上記で作成したグラフを見ながら，どこからどこに線を引けばよいのか，どこにasteriskを置けばよいのか大体の見当をつけたうえで，注釈用のデータフレームを別途作成する．これは手作業でやらざるを得ない．できたグラフを見て微調整をしていく．
 
 ```R
 anno <- data.frame(
@@ -326,12 +326,12 @@ anno
 9 2.9 34.0  2.9 32.5    Drug2    NA    NA <NA>      <NA>
 ```
 
-x, y, xend, yendは各線分の始点と終点で，xstar, ystarは注釈，今回はasteriskの位置を示す．labはasteriskそのものを指示し，colorはasteriskの色を指定している．
+x, y, xend, yendは各線分の始点と終点で，xstar, ystarは注釈，今回はasteriskの位置を示す．labはasteriskそのものを指示し，colorはasteriskの色を指定している．
 
 
 ### Add segment with geom\_segment and asterisk with geom\_text (black) {#add-segment-with-geom-segment-and-asterisk-with-geom-text--black}
 
-geom\_segmentで線を引いて，geom\_textでasteriskをつける．まずは黒色でやってみる． **inherit.aes=FALSE** をgeom\_text()とgeom\_segment()の内部に追加してggplot()内のfill=Dayを無視させる．
+geom\_segmentで線を引いて，geom\_textでasteriskをつける．まずは黒色でやってみる． **inherit.aes=FALSE** をgeom\_text()とgeom\_segment()の内部に追加してggplot()内のfill=Dayを無視させる．
 
 ```R
 TestBoxPlot3 +
@@ -344,7 +344,7 @@ TestBoxPlot3 +
 
 ### Add segment with geom\_segment and asterisk with geom\_text (color) {#add-segment-with-geom-segment-and-asterisk-with-geom-text--color}
 
-asteriskに色をつける．データフレーム annoに書き込んだ色データを明示的に指示して利用する．
+asteriskに色をつける．データフレーム annoに書き込んだ色データを明示的に指示して利用する．
 
 ```R
 TestBoxPlot3 +
@@ -354,12 +354,12 @@ TestBoxPlot3 +
 
 {{< figure src="/ox-hugo/Boxplot1mean_anno_color.png" >}}
 
-問題はここである．どうしても， **colour = anno$ast.color** とデータフレームと変数を明示的に指示しないと色がおかしくなるか，エラーになってしまう．もっとうまくggplotにデータを読ませる方法をどなたかご教示いただければ幸甚である．
+問題はここである．どうしても， **colour = anno$ast.color** とデータフレームと変数を明示的に指示しないと色がおかしくなるか，エラーになってしまう．もっとうまくggplotにデータを読ませる方法をどなたかご教示いただければ幸甚である．
 
 
 ## Barplot by ggplot2 {#barplot-by-ggplot2}
 
-次にbarplotを描いて同じことをやってみる．エラーバーは慣例通りSEにする．
+次にbarplotを描いて同じことをやってみる．エラーバーは慣例通りSEにする．
 
 
 ### Barplot {#barplot}
@@ -427,9 +427,9 @@ TestBarPlot +
 
 {{< figure src="/ox-hugo/Barplot1_anno_color.png" >}}
 
-barplotでも全く同様のグラフを作成することができた．
+barplotでも全く同様のグラフを作成することができた．
 
-なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．
+なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．
 
 
 ## Combine boxplot and barplot into the same graphic {#combine-boxplot-and-barplot-into-the-same-graphic}
@@ -437,7 +437,7 @@ barplotでも全く同様のグラフを作成することができ�
 **Ref1:** [patchwork](https://github.com/thomasp85/patchwork)   <br />
 **Ref2:** [patchworkを使って複数のggplotを組み合わせる](https://qiita.com/nozma/items/4512623bea296ccb74ba)
 
-patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．
+patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．
 
 ```R
 # Boxplot
@@ -467,6 +467,6 @@ P1 + P2
 
 {{< figure src="/ox-hugo/Combined.png" >}}
 
-このpatchworkは足し算だけで２つの図の合体ができてしまうすぐれもの．ちゃんと位置合わせなども自動的にしてくれる．素晴らしい．
+このpatchworkは足し算だけで２つの図の合体ができてしまうすぐれもの．ちゃんと位置合わせなども自動的にしてくれる．素晴らしい．
 
-しかし，こうして並べて比べてみると，barplotが如何に情報量の少ないグラフであるかが一目瞭然である．
+しかし，こうして並べて比べてみると，barplotが如何に情報量の少ないグラフであるかが一目瞭然である．

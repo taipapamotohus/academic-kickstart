@@ -5150,7 +5150,7 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
 
      このように併用はもちろん可能ではあるが，フレームの配列が乱れてしまい，それを調整するのに手間取ることがある．目的が違うものなので，一緒にしなくても異なるフレームで使えば良いと思う．
 
-** How to use mark in Emacs (helm-all-mark-rings)     :emacs:mark:ring:helm:
+** COMMENT How to use mark in Emacs (helm-all-mark-rings)     :emacs:mark:ring:helm:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: mark-and-desktop-saving
    :EXPORT_FILE_NAME: index
@@ -5221,3 +5221,567 @@ This is my rifle. There are many like it, but this one is mine. My rifle is my b
 
    今回は地味だ．．．．
    しかし，役に立つと思う．
+** How to create conference posters by latex (beamer) :latex:beamer:conference:poster:emacs:Inkscape:tikz:overleaf:
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: how-to-create-conference-poster-by-latex--beamer
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2019-11-22
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "latex (beamer)による学会発表用のポスターの作り方"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Sfera con Sfera at Trinity College Dublin"))
+   :END:
+
+   学会発表用のスライド作成については，[[../beamer][beamerでスライド原稿用pdfを作成する（その１）]]に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．
+
+latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．
+
+  <!--more-->
+
+  {{{toc(2)}}}
+
+*** General remarks
+    - [[https://guides.lib.wayne.edu/posters/latex][Creating Research Posters]]
+    - [[https://tex.stackexchange.com/questions/341/how-to-create-posters-using-latex][How to create posters using LaTeX]]
+    - [[https://ja.overleaf.com/gallery/tagged/poster][Gallery — Poster]]
+    - [[https://www.latextemplates.com/cat/conference-posters][LaTeX Templates]]
+
+*** beamerposter
+    おそらく最もよく使われているパッケージ
+**** References
+     - [[https://ctan.org/pkg/beamerposter][beamerposter – Extend beamer and a0poster for custom sized posters]]
+     - [[https://github.com/deselaers/latex-beamerposter][The LaTeX beamerposter package]]
+     - [[http://tug.org/pracjourn/2012-1/shang/shang.pdf][Writing posters with beamerposter package in LATEX]]
+     - [[https://pecorarista.com/posts/poster.html][LaTeX (Beamer)で学会発表用のポスターを作る]]
+     - [[http://muscle-keisuke.hatenablog.com/entry/2017/12/18/235617][LaTeX(Beamer)でポスターを作る]]
+**** Installation
+     texlive (MacTeX)をインストールした時点で入っているので，改めてインストールし直す必要はない．
+**** Usage
+***** スタイルシートの変更
+      まずスタイルファイルを使用する必要がある．私は，beamerposter packageの中のthemes directoryに入っている *beamerthemeI6dv.sty* を少し変更して *beamerthemeI6dv_test.sty* として使用している．変更箇所は以下の通りである．これも覚書として残しておく．
+
+     #+begin_src diff
+       --- beamerthemeI6dv.sty 2019-11-24 14:32:46.000000000 +0900
+       +++ beamerthemeI6dv_test.sty    2019-11-24 20:55:47.000000000 +0900
+       @@ -1,4 +1,4 @@
+       -\ProvidesPackage{beamerthemeI6dv} % this style was created by David Vilar
+       +\ProvidesPackage{beamerthemeI6dv_test} % this style was created by David Vilar
+
+       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \selectcolormodel{cmyk}
+       @@ -30,7 +30,7 @@
+
+       % footline colors and fonts
+       \setbeamercolor{footline}{fg=white,bg=i6colorschemeHeadline}
+       -\setbeamerfont{footline}{fg=white, size=\normalsize}
+       +%\setbeamerfont{footline}{fg=white, size=\normalsize}
+
+       % body colors and fonts
+       \setbeamercolor*{normal text}{fg=black,bg=i6colorscheme3}
+       @@ -42,7 +42,7 @@
+
+       % example environment
+       \setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
+       -\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+       +%\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+
+
+       %\setbeamercolor*{example body}{fg=white,bg=i6colorscheme4}
+       @@ -88,27 +88,29 @@
+       \begin{columns}[T]
+       \begin{column}{.02\paperwidth}
+       \end{column}
+       -      \begin{column}{.07\paperwidth}
+       +      \begin{column}{.1\paperwidth}
+       \begin{center}
+       -          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
+       +          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
+       +          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+       \end{center}
+       \vskip1ex
+       \end{column}
+       -      \begin{column}{.675\paperwidth}
+       +      \begin{column}{.6\paperwidth}
+       \vskip4ex
+       \raggedleft
+       \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+       \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+       \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+       \end{column}
+       -      \begin{column}{.25\paperwidth}
+       +      \begin{column}{.15\paperwidth}
+       \vskip1cm
+       \begin{center}
+       -          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
+       +          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
+       +          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+       \end{center}
+       \vskip1.5cm
+       \end{column}
+       -      \begin{column}{.03\paperwidth}
+       +      \begin{column}{.02\paperwidth}
+       \end{column}
+       \end{columns}
+       \end{beamercolorbox}
+       @@ -139,7 +141,7 @@
+       \end{beamercolorbox}
+
+       \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
+       -    Lehrstuhl f\"ur Informatik 6 - Computer Science Department - RWTH Aachen University - Aachen, Germany \hfill Mail: \texttt{<surname>@cs.rwth-aachen.de} \hfill WWW: \texttt{http://www-i6.informatik.rwth-aachen.de}
+       +   Department of HogeFuga, HogeFuga University Graduate School of Medicine, Japan \hfill Mail: \texttt{taipapa@hoge-u.sc.jp} \hfill WWW: \texttt{http://www-hogefuga/TOP.html}
+       \vskip1ex
+       \end{beamercolorbox}
+     #+end_src
+     - 好みによって適当に変更すれば良い．
+     - LogoをKobito.jpgに入れ替えているが，これはそれぞれの所属組織のものに変更すれば良い．
+     - 左側のLogoは学会のもの（ISC2017-Logo.pdf）に変更している．
+     - 一番最後はフッターに所属組織，メールアドレス，ウェブサイトなどを入れるための情報であり，そこも適宜置き換えれば良い．
+***** スタイルシートの置き場
+      私のように，LaTeXをMacTeXでインストールした場合は，上記の変更したスタイルシートは， *~/Library/texmf/tex/latex/beamer/themes/theme/* に置く．これでLaTeXはこのスタイルシートを見つけてくれる．
+***** Poster example
+      上記スタイルシートを用いて作成すると下図のようなポスターが出来上がる．これは実際の学会発表に使用したものである．ただし，発表者や所属組織やロゴは変更してある．
+      #+attr_html: :width 100% :target _self
+    [[./static/img/Poster-test.jpg]]
+
+      このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である.....(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，[[../latexmk][LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）]] に書いたように， *latexmk -pvc -pdf -view=none document.tex* とすればコンパイルされてpdfが出来上がる．
+      - 9行目： *\usetheme{I6dv_test}* によりスタイルシートを指定している．
+      - 45行目： *orientation=landscape* で横長， *orientation=portrait* で縦長になる．実際の大きさは， *width=200,height=100* で合わせる．scaleの部分でも調整する．
+
+      #+begin_src tex -n
+        % -*-coding:utf-8-*-
+        \documentclass[final,t]{beamer}
+        \mode<presentation>
+        {
+          % \usetheme{Warsaw}
+          % \usetheme{Aachen}
+          % \usetheme{Oldi6}
+          % \usetheme{I6td}
+          \usetheme{I6dv_test}
+          % \usetheme{I6pd}
+          % \usetheme{I6pd2}
+        }
+        % additional settings
+        \setbeamerfont{itemize}{size=\normalsize}
+        \setbeamerfont{itemize/enumerate body}{size=\normalsize}
+        \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+
+        % additional packages
+        % \usepackage{times}
+
+        %% 上記だけではsans serifにならないので，下記を設定　
+        %% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+        %% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+        % \usepackage[T1]{fontenc}
+        % \usepackage[usefilenames,% Important for XeLaTeX
+        % DefaultFeatures={Ligatures=Common}]{plex-otf} %
+        % \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+        %% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
+        \usepackage[T1]{fontenc}
+        \usepackage[usefilenames,% Important for XeLaTeX
+        RMstyle={Text,Semibold},
+        SSstyle={Text,Semibold},
+        TTstyle={Text,Semibold},
+        DefaultFeatures={Ligatures=Common}]{plex-otf} %
+        \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+        \usepackage{amsmath,amsthm, amssymb, latexsym}
+        \usepackage{exscale}
+        % \boldmath
+        \usepackage{booktabs, array}
+        % \usepackage{rotating} %sideways environment
+        \usepackage[english]{babel}
+        \usepackage[latin1]{inputenc}
+        \usepackage[orientation=landscape,size=custom,width=200,height=100,scale=1.725]{beamerposter}
+        \listfiles
+        \graphicspath{{figures/}}
+
+        % \usepackage{latexsym}
+
+        % Display a grid to help align images
+        % \beamertemplategridbackground[1cm]
+
+        \title{\huge Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
+        \author[taipapa et al.]{taipapa, taimama, taison, taidaughter, other person1,
+          other person2, other person3, other person 4, other person 5}
+        \institute[HogeFuga University]{Department of HogeFuga, HogeFuga Medical Center Japan}
+        \date[Feb. 23, 2017]{Feb. 17,  2017}
+
+        % abbreviations
+        \usepackage{xspace}
+        \makeatletter
+        \DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+        \def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+        \def\eg{{e.g}\onedot} \def\Eg{{E.g}\onedot}
+        \def\ie{{i.e}\onedot} \def\Ie{{I.e}\onedot}
+        \def\cf{{c.f}\onedot} \def\Cf{{C.f}\onedot}
+        \def\etc{{etc}\onedot}
+        \def\vs{{vs}\onedot}
+        \def\wrt{w.r.t\onedot}
+        \def\dof{d.o.f\onedot}
+        \def\etal{{et al}\onedot}
+        \makeatother
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{document}
+        \begin{frame}{}
+          \begin{columns}[t]
+            \begin{column}{.32\linewidth}
+
+              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              \vspace*{-2.35cm}
+              \begin{block}{Introduction}
+                % \begin{columns}[t]
+                %   \begin{column}{.75\linewidth}
+                \begin{itemize}
+                  % \item Arterial spin labeling (ASL) is a magnetic resonance
+                  %   imaging (MRI) technique that uses the protons of arterial
+                  %   blood water molecules as endogenous tracers to evaluate
+                  %   CBF noninvasively.
+                \item Territorial arterial spin labeling (TASL), a modified
+                  ASL technique, allows for the independent labeling of
+                  major individual feeding vessels and, consequently,
+                  visualization of their perfusion territories.
+                \item Perfusion territories can change substantially during
+                  the perioperative periods of carotid endarterectomy (CEA)
+                  and carotid artery stenting (CAS). Perioperative changes
+                  in the perfusion territories of major arteries are
+                  important because these changes can influence the
+                  perioperative management of hyperperfusion and other
+                  conditions.
+
+                \end{itemize}
+                \vspace{0.5cm}
+                \small{
+                  $\bigstar$ \textbf{Financial Disclosures:} This study was
+                  supported, in part, by a Grants-in-Aid for Scientific
+                  Research (C) KAKENHI Number 15K10302 from the Japan
+                  Society for the Promotion of Science.
+                }
+              \end{block}
+
+              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+              \begin{block}{Objective}
+                The objective of this study was to use TASL to assess the
+                relationships between perioperative changes in the perfusion
+                territories of the ICA and the CBF increase after carotid
+                revascularization in patients with carotid stenosis.
+              \end{block}
+
+              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              \begin{block}{Subjects and Methods}
+                \begin{columns}[t]
+                  \begin{column}{.5\linewidth}
+                    \centering
+                    \includegraphics[width=1\linewidth]{Figures/ISC2017-subjects-left_Kohmura_opt.pdf}\\%[1ex]
+                  \end{column}
+                  \begin{column}{.5\linewidth}
+
+                    \centering
+                    \vspace{-44cm}
+                    \includegraphics[width=0.85\linewidth]{Figures/ISC2017-subjects-right_opt.pdf}\\[1ex]
+
+                    \begin{itemize}
+                    \item TASL images were fused with T1 weighed
+                      images(T1WI) on the software (Osirix) to match with
+                      anatomical images. Perfusion volume of each ICA was
+                      calculated from perfusion area and thickness of
+                      slices.
+                    \item Asymmetry Index (AI) was also calculated
+                      from perfused volume of ICA on each side.
+                      % \item The patients were divided into 2 groups on the
+                      %   basis of the preoperative perfusion volume of the
+                      %   stenotic ICA, that is, \textbf{normal PV} (n = 13)
+                      %   or \textbf{reduced PV} (n = 19) groups.
+                      % \item \textbf{Normal PV} was defined as $\geq$ -2SD of the
+                      %   healthy volunteer group, that is, 312.4 cm3.
+                      % \item \textbf{Reduced PV} was defined as $\textless$
+                      %   -2SD.
+                    \end{itemize}
+                  \end{column}
+                \end{columns}
+              \end{block}
+            \end{column}
+
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            \begin{column}{.32\linewidth}
+              \vspace*{-2.35cm}
+              \begin{block}{Results}
+                \textbf{General postoperative changes in PV of ICA}\\
+                \begin{columns}
+                  \begin{column}{.4\linewidth}
+                    \vspace*{-17cm}
+                    \begin{itemize}
+                    \item The preoperative perfusion volume (\textbf{PV}) of the
+                      stenotic ICA in the carotid stenosis group was significantly
+                      smaller than that in the control group. Revascularization
+                      increased the PV of the stenotic ICA and equalized the PV of
+                      the ICAs bilaterally.
+
+                    \end{itemize}
+                  \end{column}
+
+                  \begin{column}{.6\linewidth}
+                    \centering
+                    \includegraphics[width=1\linewidth]{Figures/Figure-2-WNS.pdf}\\
+                  \end{column}
+                \end{columns}
+                \vspace*{-0.5cm}
+                \begin{itemize}
+                \item The patients were divided into 2 groups on the basis of
+                  the preoperative PV of the stenotic ICA, that is,
+                  \textbf{normal PV} (n = 13) or \textbf{reduced PV} (n = 19)
+                  groups.
+                \item \textbf{Normal PV} was defined as $\geq$ -2SD of the
+                  healthy volunteer group, that is, 312.4 cm3.
+                \item \textbf{Reduced PV} was defined as $\textless$ -2SD.
+                \end{itemize}
+
+                \vspace{0.5cm}
+
+                \textbf{Differential postoperative changes in PV \& CBF }
+
+                \begin{columns}
+                  \begin{column}{.4\linewidth}
+                    \vspace*{-18cm}
+                    \begin{itemize}
+                    \item \textbf{A:} The changes in the PV of the stenotic ICA
+                      before and after CEA or CAS in the normal PV group and the
+                      reduced PV group. After treatment, the PV increases
+                      significantly in the two groups, while the postoperative
+                      increase was much larger in the reduced PV group.
+                    \end{itemize}
+                  \end{column}
+
+                  \begin{column}{.6\linewidth}
+                    \includegraphics[width=1\linewidth]{Figures/Figure-3-WNS.pdf}\\
+                  \end{column}
+                \end{columns}
+
+                \begin{itemize}
+                \item \textbf{B:} The changes in ipsilateral CBF before and
+                  after CEA or CAS in the normal PV group and the reduced PV
+                  group. The postoperative increase in the ipsilateral CBF was
+                  larger in the reduced PV group than in the normal PV group.
+                \end{itemize}
+
+                \vspace{0.5cm}
+
+                \textbf{Relationships between postoperative changes in PV \& CBF}
+
+                \begin{columns}
+                  \begin{column}{.45\linewidth}
+                    \vspace*{-24cm}
+                    \begin{itemize}
+                    \item \textbf{A:} The rate of PV increase is significantly
+                      higher in the reduced PV group than in the normal PV
+                      group.
+                    \item \textbf{B:} The rate of CBF increase is significantly
+                      higher in the reduced PV group than in the normal PV
+                      group.
+                    \item \alert{Red circles} represent 4 patients whose
+                      postoperative increase in perfusion volume are less
+                      than lower quartile, and whose increase in CBF is more
+                      than upper quartile.
+                    \end{itemize}
+                  \end{column}
+
+                  \begin{column}{.55\linewidth}
+                    \vspace*{-1.75cm}
+                    \includegraphics[width=0.96\linewidth]{Figures/Figure-4-WNS.pdf}\\[2ex]
+
+                  \end{column}
+                \end{columns}
+
+              \end{block}
+
+            \end{column}
+
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            \begin{column}{.32\linewidth}
+              \vspace*{-3cm}
+              \begin{block}{}
+                \textbf{Differential postoperative ICA flow changes}
+                \begin{columns}[t]
+                  \begin{column}{.6\linewidth}
+                    \begin{itemize}
+                    \item The preoperative ICA flow was significantly lower in the
+                      reduced PV group than in the normal PV group.
+                    \item After treatment, the perfusion volume increases
+                      significantly in the two groups, while the postoperative
+                      increase was much larger in the reduced PV group.
+
+                    \end{itemize}
+                  \end{column}
+
+                  \begin{column}{.4\linewidth}
+
+                    \vspace*{-4cm}
+                    \centering
+                    \includegraphics[width=0.8\linewidth]{Figures/Figure-5-WNS.pdf}\\[2ex]
+
+                  \end{column}
+                \end{columns}
+
+                \textbf{Illustrative cases}
+                \begin{itemize}
+                \item \underline{Case 6 (normal PV group)}: PV markedly increased 1 day
+                  after CEA and was nearly unchanged between 1 and 7 days
+                  after CEA. ICA flow markedly increased after arterial
+                  reconstruction during CEA. Regional CBF was stable
+                  throughout the perioperative period.
+                \item \underline{Case 8 (reduced PV group)}: PV 1 day after CEA was not
+                  significantly different from that before surgery, and then,
+                  it significantly increased between 1 and 7 days after CEA,
+                  resulting in equalization of the perfusion volumes of the
+                  left and right ICAs. ICA flow markedly increased after
+                  arterial reconstruction during CEA. Regional CBF increased
+                  significantly at 1 day after CEA (CBF increase $\geq$ 100\%),
+                  representing typical hyperperfusion. Regional CBF decreased
+                  significantly at 7 days after CEA compared with the first
+                  postoperative day and returned to its normal range.
+                \end{itemize}
+
+                % \vspace{1cm}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Figures/UsualCase_legend_v2_opt.pdf}\\
+
+              \end{block}
+
+              \vspace*{-0.95cm}
+              \begin{block}{Conclusion}
+                \vspace*{-1cm}
+                \begin{itemize}
+                \item TASL demonstrated that CEA and CAS elicited increases in the
+                  PV of stenotic ICAs, which resulted in equalization of the
+                  PV of the left and right ICAs.
+                \item Patients with reduced PV tended to increase the PV
+                  more markedly than patients with PV within normal ranges.
+                \item In some patients with a reduced PV, the PV increased
+                  slightly, while the ICA flow markedly increased, which
+                  resulted in a large increase in CBF or hyperperfusion.
+                \item These findings suggested that an imbalance between
+                  increases in the PV and ICA flow could play an important
+                  role in the pathophysiology of hyperperfusion.
+                \end{itemize}
+                \vspace{-1ex}
+              \end{block}
+
+              \vspace*{-0.5cm}
+              \begin{block}{References}
+                \vspace*{-0.75cm}
+                \begin{enumerate}
+                  \scriptsize{
+                  \item Uchihashi et al. Clinical application of arterial
+                    spin-labeling MR imaging in patients with carotid
+                    stenosis: quantitative comparative study with
+                    single-photon emission CT. AJNR Am J Neuroradiol 32,
+                    1545--51, 2011
+                  \item Hartkamp et al. Mapping of cerebral
+                    perfusion territories using territorial arterial spin
+                    labeling: techniques and clinical application. NMR Biomed
+                    26, 901--12, 2013}
+                \end{enumerate}
+              \end{block}
+             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            \end{column}
+          \end{columns}
+        \end{frame}
+
+        \end{document}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %%% Local Variables:
+        %%% mode: latex
+        %%% TeX-PDF-mode: t
+        %%% TeX-master: t
+        %%% End:
+      #+end_src
+
+**** Templates
+     [[https://www.overleaf.com/latex/templates?addsearch=beamerposter][Overleaf beamerposter templates]] : Overleafにあるbeamposterのテンプレート．膨大な数のテンプレートがあるので，参考になる．
+
+*** Gemini
+    texliveには含まれていないbeamerの新しいポスター用テーマ
+**** References
+     - [[https://www.anishathalye.com/2018/07/19/gemini-a-modern-beamerposter-theme/][Gemini: A Modern LaTeX Poster Theme]]
+     - [[https://github.com/anishathalye/gemini][Gemini is a modern LaTex beamerposter theme]] : GitHub site
+**** Installation
+     - 上記のGitHub siteをcloneするかdownloadすれば良い．
+     - beamerposterに依存
+**** Usage
+     - GitHub siteに書いてある通り
+
+*** baposter
+    texliveには含まれていない．より新し目のパッケージ？
+**** References
+     - [[http://www.brian-amberg.de/uni/poster/][LaTeX Poster Template]]  ご本家．ポスターの実例が数多く挙げられており，FAQもある．
+**** Installation
+     上記サイトから *baposter.tar.bz2* をdownloadする．
+**** Usage
+     上記サイトや， *[[http://www.brian-amberg.de/uni/poster/baposter/baposter_guide.pdf][The baposter latex poster style]]* を参照
+**** Templates
+     [[https://www.overleaf.com/latex/templates?addsearch=baposter][Overleaf baposter templates]] : Overleafにあるbaposterのテンプレート．
+
+*** tikzposter
+    「科学的ポスターを効率的に作成するLaTeXのクラス」である．
+**** References
+     - [[https://ctan.org/pkg/tikzposter][tikzposter – Create scientific posters using TikZ]]   CTAN
+     - [[https://bitbucket.org/surmann/tikzposter/wiki/Home][TikZposter]]    Wiki    ガイドをダウンロードできるリンクあり
+     - [[https://www.doc.ic.ac.uk/~ebotoeva/fancytikzposter.html][Elena Botoeva]]   作者のページ
+**** Installation
+     texliveをインストールすれば，一緒に入ってくる．
+**** Usage
+     上記のガイドを参照．最も簡単な例は以下の通り．
+     #+begin_src tex -n
+       \documentclass{tikzposter}
+
+       \title{Title}
+       \author{Author}
+       \institute{Institute}
+
+       \begin{document}
+
+       \maketitle
+
+       \block{Block}{Content}
+       \end{document}
+     #+end_src
+**** Templates
+     [[https://www.overleaf.com/latex/templates?addsearch=tikzposter][Overleaf tikzposter templates]] : Overleafにあるtikzposterのテンプレート．多数のテンプレートがあるので，参考になる．
+
+*** betterposter
+    伝統的な学術ポスターに対する新たなスタイルのポスター．実にユニーク！
+      #+attr_html: :width 80% :target _self
+    [[./static/img/betterposter_example.png]]
+
+    要するに中核的なメッセージを簡潔な文章で特大に表示し，方法，結果，考察などは極端に簡潔にし，詳細はQR codeから論文を落として読んでもらうという，とんでもない発想のポスターである．
+**** References
+     - [[https://osf.io/ef53g/][Better Scientific Poster]] : ご本家．元々はPowerPointのテンプレート
+     - [[https://www.youtube.com/watch?v=1RwJbhkCA58&feature=youtu.be][How to create a better research poster in less time (including templates)]] : 作者自身のYouTube動画．面白い．必見！
+     - [[https://github.com/rafaelbailo/betterposter-latex-template][Better Poster Latex Template]] : GitHub. LaTeXへの移植版．
+     - [[https://twitter.com/mikemorrison][Mike Morrison]] : 作者のTwitter．多くの人が自分の"betterposter"をアップしているのが見られる．
+**** Installation
+     上記の [[https://github.com/rafaelbailo/betterposter-latex-template][Better Poster Latex Template]] に詳細に書いてあるが，repositoryをclone するか，ダウンロードして，パスが通るところに置く．
+**** Usage
+     上記の [[https://github.com/rafaelbailo/betterposter-latex-template][Better Poster Latex Template]] を参考．
+
+*** Inkscape
+    これはオマケ．なぜかというと，ダントツでかっこいいから（笑）．
+**** [[http://blog.felixbreuer.net/2010/10/24/poster.html?utm_source=share&utm_medium=ios_app&utm_name=iossmf][Making a Math Conference Poster with Inkscape]]
+       これを見ると，羨望の念が．．．でも，Inkscapeを使えるようにならないと．．．
+        #+attr_html: :width 80% :target _self
+        [[./static/img/poster-fpsac2010.png]]
+**** [[https://dionhaefner.github.io/2015/07/creating-a-science-conference-poster-with-inkscape/][Creating a Science Conference Poster with Inkscape]]
+     こちらも同じく．．．
+        #+attr_html: :width 80% :target _self
+        [[./static/img/poster-lowres.png]]
+
+*** まとめ
+    今回ポスターについてまとめてみて，改めて思ったのは，一旦自分のスタイルが出来上がると，万年一日のごとく，同じフォーマットで作成してしまい，金太郎飴のようになってしまうという事である．もちろん，内容が一番大事なのだが，如何に伝えるかという点でポスターのフォーマットは重要と思う．そういう意味では，[[betterposter][betterposter]] や [[Inkscape][Inkscape]] によるポスターは非常に刺激的であった．特に，betterposterの手法は比較的模倣がしやすそうなので，次回は是非試みてみたい．
