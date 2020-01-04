@@ -5950,7 +5950,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
       16
       17 #replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
       18
-      19 replace: ^file:///Users/kohkichi/Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
+      19 replace: ^file:///Users/taipapa/Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
       20
     #+end_src
     これでブラウザによるpdf fileの全文検索が可能となった．

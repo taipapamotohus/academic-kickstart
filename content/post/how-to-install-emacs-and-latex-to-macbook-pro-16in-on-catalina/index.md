@@ -2,7 +2,7 @@
 title = "How to install Emacs & LaTeX to MacBook Pro 16-inch on Catalina"
 author = ["taipapa"]
 date = 2019-12-31
-lastmod = 2020-01-04T19:49:39+09:00
+lastmod = 2020-01-04T19:59:40+09:00
 tags = ["macbookpro16", "Emacs", "LaTeX", "Catalina", "setup"]
 type = "post"
 draft = false
@@ -225,7 +225,7 @@ $ tree -L 5
 16
 17 #replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
 18
-19 replace: ^file:///Users/kohkichi/Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
+19 replace: ^file:///Users/taipapa/Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
 20
 ```
 
