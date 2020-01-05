@@ -5862,7 +5862,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
      - [[../latexmk][LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）]]
      - [[../mojave][Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew]]
 
-   最初の[[https://doratex.hatenablog.jp/entry/20190502/1556775026][MacTeX 2019 のインストール＆日本語環境構築法]]の通りにすれば良い．これにより， *texlive2019* がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，[[https://texwiki.texjp.org/?ヒラギノフォント#macos-hiragino-setup][macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ]] にCatalinaでのtexlive2019のインストールの仕方が記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．
+   最初の[[https://doratex.hatenablog.jp/entry/20190502/1556775026][MacTeX 2019 のインストール＆日本語環境構築法]]の通りにすれば良い．これにより， *texlive2019* がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，[[https://texwiki.texjp.org/?ヒラギノフォント#macos-hiragino-setup][macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ]] にCatalinaでのtexlive2019のインストールの方法が詳細に記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．
 
 **** フォントマップの確認とpdfへのフォントの埋め込みの確認
      [[https://qiita.com/potato_omom/items/88b5964bb057bbddf2c3][いまさらMacTeXの更新]] を参考に，フォントマップを見ると，

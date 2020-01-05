@@ -2,7 +2,7 @@
 title = "How to install Emacs & LaTeX to MacBook Pro 16-inch on Catalina"
 author = ["taipapa"]
 date = 2019-12-31
-lastmod = 2020-01-05T22:56:58+09:00
+lastmod = 2020-01-05T23:00:41+09:00
 tags = ["macbookpro16", "Emacs", "LaTeX", "Catalina", "setup"]
 type = "post"
 draft = false
@@ -115,7 +115,7 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 -   [LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）](../latexmk)
 -   [Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew](../mojave)
 
-最初の[MacTeX 2019 のインストール＆日本語環境構築法](https://doratex.hatenablog.jp/entry/20190502/1556775026)の通りにすれば良い．これにより， **texlive2019** がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，[macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ](https://texwiki.texjp.org/?%E3%83%92%E3%83%A9%E3%82%AE%E3%83%8E%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88#macos-hiragino-setup) にCatalinaでのtexlive2019のインストールの仕方が記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．
+最初の[MacTeX 2019 のインストール＆日本語環境構築法](https://doratex.hatenablog.jp/entry/20190502/1556775026)の通りにすれば良い．これにより， **texlive2019** がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，[macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ](https://texwiki.texjp.org/?%E3%83%92%E3%83%A9%E3%82%AE%E3%83%8E%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88#macos-hiragino-setup) にCatalinaでのtexlive2019のインストールの方法が詳細に記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．
 
 
 ### フォントマップの確認とpdfへのフォントの埋め込みの確認 {#フォントマップの確認とpdfへのフォントの埋め込みの確認}
