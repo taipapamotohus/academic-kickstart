@@ -1,5 +1,5 @@
 #+HUGO_BASE_DIR: ./
-#+setupfile: ~/Sources/org-mode-folder/org-macros-master/org-macros.setup
+#+setupfile: /Users/kohkichi/Sources/org-macros/org-macros.setup
 #+STARTUP: align shrink
 
 * Home
@@ -1840,19 +1840,20 @@
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "headers/GrandPlace2.jpg") (caption . "Grand Place (daytime)"))
    :END:
 
-** COMMENT Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記） :emacs:orgmode:html:export:css:color:
+** Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記） :emacs:orgmode:html:export:css:color:
    :PROPERTIES:
-   :EXPORT_FILE_NAME: html_export
+   :EXPORT_HUGO_BUNDLE: html_export
+   :EXPORT_FILE_NAME: index
    :EXPORT_DATE: 2018-12-10
    :EXPORT_HUGO_AUTO_SET_LASTMOD: t
    :EXPORT_HUGO_DRAFT: false
    :EXPORT_AUTHOR: "taipapa"
    :EXPORT_HUGO_TYPE: post
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "headers/Parthenon.jpg") (caption . "Parthenon"))
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "Hugo v0.60+ とGoldmarkへの対応"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Parthenon"))
    :END:
 
-
-   学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．
+学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．
 
 *** [[https://github.com/fniessen/org-macros][Org Macros]]
     フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの [[https://github.com/fniessen/org-macros][Org Macros]]が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．
@@ -1875,21 +1876,22 @@
      - 残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．
      いくつか使い方の例をあげておく
      #+begin_src lisp
-        {{{color(blue, 青くなるかな？)}}}
-        ,*{{{color(blue, ボールドで青くなるかな？)}}}*
+        {{{color(red, 赤くなるかな？)}}}
+        ,*{{{color(blue, ボールドで赤くなるかな？)}}}*
         {{{highlight(yellow, 黄色にハイライトされるかな？)}}}
         ,*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな？)}}}*
         {{{bgcolor(cyan, 背景がシアンになるかな？)}}}
         ,*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな？)}}}*
      #+end_src
      これが以下のように表示される．
-     + {{{color(blue, 青くなるかな？)}}}
-     + *{{{color(blue, ボールドで青くなるかな？)}}}*
+     + {{{color(red, 赤くなるかな？)}}}
+     + *{{{color(red, ボールドで赤くなるかな？)}}}*
      + {{{highlight(yellow, 黄色にハイライトされるかな？)}}}
      + *{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな？)}}}*
      + {{{bgcolor(cyan, 背景がシアンになるかな？)}}}
      + *{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな？)}}}*
-     上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．
+
+上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．
      #+begin_src lisp
         {{{begin_panel}}} Panel example This is a formatted block of text… {{{end_panel}}}
      #+end_src
@@ -1907,13 +1909,38 @@
      This is a formatted block of text...
      #+end_panel
      なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの *12.5 Macro replacement* を参考にしていただきたい．
+
+   {{% alert note %}}
+   *2020年1月12日　Hugoを使用している人のための追記*
+   {{% /alert %}}
+
+   2019年の年末にMacBook Pro 16 inch (Catalina)に買い替えた時，Hugoもv.０.61にupgradeした．その際に，HugoのMarkdown用のdefault libraryがGoldmarkに変更になっていることに気がついていなかった．そのためにこのページのフォントの色の変更が働かなくなっていた．数日前に気がついたので，修正した．詳細は以下のサイトを参考．
+
+参考サイト1：[[https://gohugo.io/news/0.60.0-relnotes/][Goldmark – CommonMark compliant, GitHub flavored, fast and flexible – is the new default library for Markdown in Hugo.]]
+
+参考サイト2：[[https://discourse.gohugo.io/t/ox-hugo-go-org/21254/7][Just wonder if the migration to Goldmark is going to be smooth ?]]
+
+上記のサイトには，「マークダウンファイルにinline HTMLがたくさんあるのなら，unsafe modeを有効にしないといけないかもね」とあるので，config/default/config.tomlの最後に，
+
+#+begin_src
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+#+end_src
+
+を追加した．これで，Markdownがうまく働くようになり，再びフォントの色も変更されるようになった．
+
+
+
+
 *** [[https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring][Exporting org-mode to HTML: In-place coloring]]
     フォントの色を変える別の方法である．リンク先にある通り，
     #+begin_src html
 この文章は， *@@html:<font color = "blue">@@青のボールド@@html:</font>@@*になって欲しい！
     #+end_src
     これが以下のように表示される．\\
-    この文章は， *@@html:<font color = "blue">@@青のボールド@@html:</font>@@* になって欲しい！
+    この文章は， *@@html:<font color = "red">@@赤のボールド@@html:</font>@@* になって欲しい！
     - org-modeのマニュアルの *12.9.5 Quoting HTML tags* も参考のこと
 
       こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．
@@ -5785,7 +5812,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** まとめ
     今回ポスターについてまとめてみて，改めて思ったのは，一旦自分のスタイルが出来上がると，万年一日のごとく，同じフォーマットで作成してしまい，金太郎飴のようになってしまうという事である．もちろん，内容が一番大事なのだが，如何に伝えるかという点でポスターのフォーマットは重要と思う．そういう意味では，[[betterposter][betterposter]] や [[Inkscape][Inkscape]] によるポスターは非常に刺激的であった．特に，betterposterの手法は比較的模倣がしやすそうなので，次回は是非試みてみたい．
-** How to install Emacs & LaTeX to MacBook Pro 16-inch on Catalina :macbookpro16:Emacs:LaTeX:Catalina:setup:
+** COMMENT How to install Emacs & LaTeX to MacBook Pro 16-inch on Catalina :macbookpro16:Emacs:LaTeX:Catalina:setup:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina
    :EXPORT_FILE_NAME: index
