@@ -6013,3 +6013,131 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** まとめ
     今回はかなり苦労すると予想していたのだが，意外とスムーズに行ってしまった（笑）．問題になったのは細かい点が多く，ファイルシステムの変更に伴う問題が一番厄介であった．そのほかでは，GIMPも特に問題なく動き，動画ファイルも問題なかった．お陰で仕事ができる環境を素早く確立することができた．今回も，「案ずるより産むが易し」であった．😄
+** Dired reinforcement                                :emacs:dired:treemacs:
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: dired
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2020-02-18
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "Diredを補強してEmacsをfile viewerとして使う"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Stone figure of warrior on horse at National Museum of Ireland"))
+   :END:
+   考えてみれば，EmacsのFile ViewerであるDiredについては，[[../peep][peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）]]を投稿した以外はほとんど何も書いていないことに気がついた．そこで，今回は，Diredを強化するパッケージについてまとめることにした．
+
+  <!--more-->
+
+  {{{toc(2)}}}
+
+*** [[http://pragmaticemacs.com/emacs/dired-human-readable-sizes-and-sort-by-size/][DIRED: HUMAN-READABLE SIZES AND SORT BY SIZE]]
+    Emacsの老舗ブログの一つである *Pragmatic Emacs* からのパクリである．diredのデフォルトではファイルサイズが *24345* のようにバイトサイズで正確に表示されるのであるが，はっきり言って見にくい．そこで人間に読みやすい表示になるようにls commandのオプションを与える．例によって，~/.emacs.d/personal/init.orgに以下を追記する．
+    #+begin_src lisp
+      ,#+begin_src emacs-lisp
+      (setq dired-listing-switches "-alh")
+      ,#+end_src
+    #+end_src
+    これで上記の例では， *24K* と表示されるようになる．
+
+*** [[https://github.com/Fuco1/dired-hacks#dired-subtree][dired-subtree]]
+**** 参照サイト： [[https://github.com/Fuco1/dired-hacks][dired-hacks]]
+     これはdiredの様々な追加物のコレクションであるが，この中のdired-subtreeが便利である．
+
+**** Installation
+     diredのデフォルトでは，directoryでEnterすると新しいバッファが開いてそのdirectoryが表示される．しかし，ここは，やはり，同じバッファでsubdirectoryとして表示して欲しいところである．それを実現するのが，このdired-subtreeである．これも以下を，~/.emacs.d/personal/init.orgに書き込めば良い．
+      #+begin_src lisp
+      ,#+begin_src emacs-lisp
+      (use-package dired-subtree
+        :ensure t
+        :config
+        (bind-keys :map dired-mode-map
+                   ("i" . dired-subtree-insert)
+                   (";" . dired-subtree-remove)))
+      ,#+end_src
+      #+end_src
+      これで，directoryにカーソルを持っていって *i* を叩けば同じバッファ内でsubdirectoryとしてそのdirectoryが開き， *;* を叩けば閉じるようになる．
+**** Usage
+      以下の図で説明する．（前述の設定でファイルサイズはKBやMBで表示されている）
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/subtree-1.jpg]]
+
+      まず，13行目のstatic directoryにカーソルを持っていき，i を叩くとstaticの行の下にimgとox-hugoのdirectoryが現れる．
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/subtree-2.jpg]]
+
+      ついで，imgにカーソルを移動し，再び i を叩くと下図のようにimg directoryの中身が表示される．
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/subtree-3.jpg]]
+
+      directoryを閉じるときには，前述のごとく ; を叩けば良い．
+
+*** Dired Plus
+    Diredの拡張強化版．多くの機能を有するが，私は色使いが綺麗なので使用している．それ以外の機能はほとんど使用していない（笑）．
+**** 参照サイト
+     - https://www.emacswiki.org/emacs/DiredPlus  ご本家
+     - [[https://www.reddit.com/r/emacs/comments/84thzd/what_happened_to_dired_package/][What happened to dired+ package?]]
+**** Installation
+     #+begin_src lisp
+       ,#+begin_src emacs-lisp
+       (use-package dired+
+         :quelpa (dired+ :fetcher github :repo "emacsmirror/dired-plus")
+         :defer 1
+         :init
+         (setq diredp-hide-details-initially-flag nil)
+         (setq diredp-hide-details-propagate-flag nil)
+         :config
+         (diredp-toggle-find-file-reuse-dir 1)
+         (let ((gls "/usr/local/bin/gls"))
+           (if (file-exists-p gls) (setq insert-directory-program gls)))
+         )
+       ,#+end_src
+     #+end_src
+**** Usage
+     上記のご本家サイトを参照．ここまでの画像はDired Plusがインストールされた状態のものであり，ファイル名，拡張子，time, size, permissionなどが色分けされているのが分かる．
+
+*** dired-quick-sort
+    dired-modeにおいて，"S"をsort用のhydra立ち上げにバインドする．
+**** 参照サイト
+     - https://gitlab.com/xuhdev/dired-quick-sort
+     - http://pragmaticemacs.com/emacs/speedy-sorting-in-dired-with-dired-quick-sort/
+**** Installation
+     #+begin_src lisp
+       ,#+begin_src emacs-lisp
+       (use-package dired-quick-sort
+         :ensure t
+         :config
+         (dired-quick-sort-setup))
+       ,#+end_src
+     #+end_src
+**** Usage
+     以下の図で説明する．
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/dired-default.jpg]]
+
+      これはdirectoryを開いた時のデフォルトの画像である．ここで，*S*を叩くと下図のような画面になる．
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/dired-default2.jpg]]
+
+      下に開いたhydraのバッファを見て，例えば，グループとサイズでソートするようにsとgを叩くと下の画像（directoryが最初に来てファイルがその後になり，サイズの大きい順になっている）のようになる．
+
+
+      #+attr_html: :width 80% :target _self
+      [[./static/img/dired-sort.jpg]]
+
+      ここでqを叩けば，このソートの状態が維持されたままhydraのバッファが閉じる．
+
+*** treemacs-icons-dired
+**** 参照サイト
+     - [[https://github.com/Alexander-Miller/treemacs#treemacs-icons-dired][treemacs-icons-dired]]  ご本家
+     - [[../treemacs_projectile/][Treemacs and Projectile]]  当サイトの以前の記事
+
+   treemacsのアイコンをdiredでも使えるようにしてくれるモード．この記事のここまでのdired bufferの画像に表示されているアイコンがそれである．treemacsをインストールすれば一緒にインストールされる（インストールについては，上記の過去記事を参考にされたい）．treemacsを立ち上げていれば，diredを立ち上げると自動的にバッファにアイコンが表示される．が，時々何故か表示されないことがある．そういう時は，M-x treemacs-icons-dired-modeを何回かやってtreemacs-icons-dired-modeを再起動すれば表示されるようになる．
+
+*** peep-dired
+    以前の記事（[[../peep][peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）]]）を参照．実はこれが一番役に立つかも．．．
