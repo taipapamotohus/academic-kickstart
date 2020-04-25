@@ -1,0 +1,40 @@
+{{ $url := .Get "url" }}
+{{ $json := getJSON $.Page.Site.Params.OgpApiEndpoint $url }}
+{{ $siteName := $json.siteName }}
+{{ $title := $json.title }}
+{{ $description := $json.description }}
+{{ $image := $json.image }}
+{{ $urlInfo := urls.Parse $url }}
+{{ $host := path.Join $urlInfo.Scheme $urlInfo.Host }}
+{{ $prefix := "https://www.google.com/s2/favicons?domain=" }}
+{{ $favicon := printf "%s%s" $prefix $urlInfo.Host }}
+
+<div class="body-iframe page-embed hatena-web-card">
+    <div class="embed-wrapper">
+        <div class="embed-wrapper-inner">
+            <div class="embed-content with-thumb">
+                <div class="thumb-wrapper">
+                    <a href="{{ $url }}" target="_blank">
+                        <img src="{{ $image }}" class="thumb">
+                    </a>
+                </div>
+                <div class="entry-body">
+                    <h2 class="entry-title">
+                        <a href="{{ $url }}" target="_blank">
+                            {{ $title }}
+                        </a>
+                    </h2>
+                    <div class="entry-content">
+                            {{ $description }}
+                    </div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                <a href="{{ $host }}"target="_blank">
+                    <img src="{{ $favicon }}" alt="" title="{{ $title }}" class="favicon">
+                    {{ $host }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

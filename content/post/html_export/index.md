@@ -2,7 +2,7 @@
 title = "Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）"
 author = ["taipapa"]
 date = 2018-12-10
-lastmod = 2020-02-23T21:56:19+09:00
+lastmod = 2020-04-25T20:21:50+09:00
 tags = ["emacs", "orgmode", "html", "export", "css", "color"]
 type = "post"
 draft = false

@@ -1,0 +1,6 @@
+# {{< iframe "https://taipapamotohus.github.io/MySlides/" >}}
+
+[[https://taipapamotohus.github.io/MySlides/][Live demo]]
+
+
+下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込もうとしたのだが，何故かこのページ自体が埋め込まれてしまう．下の枠内を最後までスクロールして， *{{{color(magenta, Live demo)}}}* とあるところをクリックしてもらえば，枠内がスライドになるので，それで色々と弄っていただきたい．
