@@ -1,7 +1,7 @@
 +++
 title = "About"
 author = ["細田弘吉"]
-lastmod = 2020-04-26T23:14:37+09:00
+lastmod = 2020-04-26T23:25:06+09:00
 type = "about"
 draft = false
 weight = 4

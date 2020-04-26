@@ -2,7 +2,7 @@
 title = "How to create presentation slides by reveal.js and org-mode (org-reveal)"
 author = ["taipapa"]
 date = 2020-04-24
-lastmod = 2020-04-26T23:14:41+09:00
+lastmod = 2020-04-26T23:25:10+09:00
 tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript"]
 type = "post"
 draft = false
@@ -411,7 +411,7 @@ $ tree -L 2
 
 ### creation of custom css file {#creation-of-custom-css-file}
 
-ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom\_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．
+ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom\_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．
 
 ```html
 /* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */

@@ -6467,7 +6467,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
    このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．
 
 **** creation of custom css file
-     ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．
+     ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．
 
      #+begin_src html
        /* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
