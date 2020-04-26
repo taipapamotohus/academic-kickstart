@@ -7,7 +7,7 @@
   :EXPORT_HUGO_SECTION: home
   :END:
 
-** COMMENT About
+** About
    :PROPERTIES:
    :EXPORT_FILE_NAME: about
    :EXPORT_HUGO_TYPE: about
@@ -27,7 +27,7 @@
 *** *環境*
     MacBook Pro (16-inch, 2019), Catalina
 
-    GNU Emacs 26.1, TeX Live 2019 (MacTeX-2019)
+    GNU Emacs 26.3, TeX Live 2019 (MacTeX-2019)
 
     -----
 

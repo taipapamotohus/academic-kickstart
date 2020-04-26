@@ -2,7 +2,7 @@
 title = "How to create presentation slides by reveal.js and org-mode (org-reveal)"
 author = ["taipapa"]
 date = 2020-04-24
-lastmod = 2020-04-26T23:04:02+09:00
+lastmod = 2020-04-26T23:14:41+09:00
 tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript"]
 type = "post"
 draft = false
