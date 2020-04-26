@@ -25,9 +25,9 @@
     殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．
 
 *** *環境*
-    MacBook Pro late 2016, Sierra
+    MacBook Pro (16-inch, 2019), Catalina
 
-    GNU Emacs 26.1, TeX Live 2018 (MacTeX-2018)
+    GNU Emacs 26.1, TeX Live 2019 (MacTeX-2019)
 
     -----
 
@@ -6141,7 +6141,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** peep-dired
     以前の記事（[[../peep][peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）]]）を参照．実はこれが一番役に立つかも．．．
-** How to create presentation slides by reveal.js and org-mode (org-reveal)
+** How to create presentation slides by reveal.js and org-mode (org-reveal) :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal
    :EXPORT_FILE_NAME: index
@@ -6370,8 +6370,9 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
      2. REVEAL_HLEVELを999にすると遷移が全て横向きとなる．
      3. REVEAL_TITLE_SLIDEでタイトル（%t）と著者（%a）のヘッダーレベルを決める．
      4. REVEAL_INIT_OPTIONで各種のコントロールを行う．下図の設定を参照
-     5. REVEAL_THEMEでテーマを決める．
+     5. REVEAL_THEMEでテーマを決める．前述のように，emacs-revealのバンドルから取ってきたoer-reveal.cssを使用した．
      6. REVEAL_EXTRA_CSSで追加のCSSを設定し，これで細かな調整を行う．
+     7. REVEAL_PREAMBLEで，フッターを指定した．
 
    #+begin_src lisp
      ,#+REVEAL_ROOT: ./reveal.js # パスは各自の環境に合わせて書き換えていただきたい
@@ -6466,7 +6467,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
    このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．
 
 **** creation of custom css file
-     ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬の内容に注意する．試行錯誤の痕跡もそのままにしておく．
+     ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．
 
      #+begin_src html
        /* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */

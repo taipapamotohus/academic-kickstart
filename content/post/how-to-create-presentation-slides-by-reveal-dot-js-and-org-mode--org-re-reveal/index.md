@@ -2,7 +2,8 @@
 title = "How to create presentation slides by reveal.js and org-mode (org-reveal)"
 author = ["taipapa"]
 date = 2020-04-24
-lastmod = 2020-04-25T20:21:55+09:00
+lastmod = 2020-04-26T23:04:02+09:00
+tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript"]
 type = "post"
 draft = false
 weight = 1
@@ -310,8 +311,9 @@ $ tree -L 2
 2.  REVEAL\_HLEVELを999にすると遷移が全て横向きとなる．
 3.  REVEAL\_TITLE\_SLIDEでタイトル（%t）と著者（%a）のヘッダーレベルを決める．
 4.  REVEAL\_INIT\_OPTIONで各種のコントロールを行う．下図の設定を参照
-5.  REVEAL\_THEMEでテーマを決める．
+5.  REVEAL\_THEMEでテーマを決める．前述のように，emacs-revealのバンドルから取ってきたoer-reveal.cssを使用した．
 6.  REVEAL\_EXTRA\_CSSで追加のCSSを設定し，これで細かな調整を行う．
+7.  REVEAL\_PREAMBLEで，フッターを指定した．
 
 <!--listend-->
 
@@ -409,7 +411,7 @@ $ tree -L 2
 
 ### creation of custom css file {#creation-of-custom-css-file}
 
-ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom\_oer.cssとして作成する．locationが内容と齟齬の内容に注意する．試行錯誤の痕跡もそのままにしておく．
+ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom\_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．
 
 ```html
 /* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
