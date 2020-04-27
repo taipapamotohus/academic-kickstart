@@ -2,7 +2,7 @@
 title = "How to create presentation slides by reveal.js and org-mode (org-reveal)"
 author = ["taipapa"]
 date = 2020-04-24
-lastmod = 2020-04-26T23:25:10+09:00
+lastmod = 2020-04-27T20:55:58+09:00
 tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript"]
 type = "post"
 draft = false
@@ -524,7 +524,7 @@ history: true,
  </body>
 ```
 
-要するに，keyboard以下が追加部分である．chalkboardの設定を[reveal.js-plugins/chalkboard/](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)の解説に従って追記した．これにより，上記1ー5の問題は全て解消された．
+要するに，keyboard以下が追加部分である．chalkboardの設定を[reveal.js-plugins/chalkboard/](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．
 
 下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． **”f”** を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
 

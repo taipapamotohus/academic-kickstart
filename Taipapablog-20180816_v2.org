@@ -2,7 +2,7 @@
 #+setupfile: /Users/kohkichi/Sources/org-macros/org-macros.setup
 #+STARTUP: align shrink
 
-* Home
+* COMMENT Home
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: home
   :END:
@@ -6141,7 +6141,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** peep-dired
     以前の記事（[[../peep][peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）]]）を参照．実はこれが一番役に立つかも．．．
-** COMMENT How to create presentation slides by reveal.js and org-mode (org-reveal) :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
+** How to create presentation slides by reveal.js and org-mode (org-reveal) :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal
    :EXPORT_FILE_NAME: index
@@ -6577,7 +6577,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
        </script>
        </body>
     #+end_src
-    要するに，keyboard以下が追加部分である．chalkboardの設定を[[https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard][reveal.js-plugins/chalkboard/]]の解説に従って追記した．これにより，上記1ー5の問題は全て解消された．
+    要するに，keyboard以下が追加部分である．chalkboardの設定を[[https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard][reveal.js-plugins/chalkboard/]]の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．
 
     下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． *”f”* を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
 
