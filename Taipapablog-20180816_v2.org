@@ -6585,7 +6585,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．
 
-** How to create presentation slides by reveal.js and org-mode (org-reveal) Part2
+** COMMENT How to create presentation slides by reveal.js and org-mode (org-reveal) Part2
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2
    :EXPORT_FILE_NAME: index
