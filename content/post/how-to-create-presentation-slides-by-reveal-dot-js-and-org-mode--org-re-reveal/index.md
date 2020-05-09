@@ -2,12 +2,12 @@
 title = "How to create presentation slides by reveal.js and org-mode (org-reveal)"
 author = ["taipapa"]
 date = 2020-04-24
-lastmod = 2020-04-27T20:55:58+09:00
+lastmod = 2020-05-09T19:54:22+09:00
 tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript"]
 type = "post"
 draft = false
 weight = 1
-subtitle = "reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）"
+subtitle = "reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）（2020年5月9日修正）"
 [image]
   placement = 3
   caption = "Trinity College Dublin"
@@ -526,8 +526,16 @@ history: true,
 
 要するに，keyboard以下が追加部分である．chalkboardの設定を[reveal.js-plugins/chalkboard/](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．
 
-下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． **”f”** を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
+下に， ~~Hugoのshortcodeを使って~~ **BEGIN\_EXPORT html** を使ってできあがったスライドそのものを埋め込んでみた．
 
-{{< SlideInclusion "<https://taipapamotohus.github.io/MySlides/>" >}}
+```org
+#+BEGIN_EXPORT html
+<iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+#+END_EXPORT
+```
 
-これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．
+このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． **”f”** を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
+
+<iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+
+<br />  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．

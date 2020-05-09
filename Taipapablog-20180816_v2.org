@@ -6141,7 +6141,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** peep-dired
     以前の記事（[[../peep][peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）]]）を参照．実はこれが一番役に立つかも．．．
-** COMMENT How to create presentation slides by reveal.js and org-mode (org-reveal) :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
+** How to create presentation slides by reveal.js and org-mode (org-reveal) :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal
    :EXPORT_FILE_NAME: index
@@ -6150,7 +6150,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
    :EXPORT_HUGO_DRAFT: false
    :EXPORT_AUTHOR: taipapa
    :EXPORT_HUGO_TYPE: post
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）（2020年5月9日修正）"
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Trinity College Dublin"))
    :END:
 
@@ -6579,13 +6579,23 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     #+end_src
     要するに，keyboard以下が追加部分である．chalkboardの設定を[[https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard][reveal.js-plugins/chalkboard/]]の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．
 
-    下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． *”f”* を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
+    下に， +Hugoのshortcodeを使って+ *BEGIN_EXPORT html* を使ってできあがったスライドそのものを埋め込んでみた．
 
-{{< SlideInclusion "https://taipapamotohus.github.io/MySlides/" >}}
+    #+begin_src org
+      ,#+BEGIN_EXPORT html
+      <iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+      ,#+END_EXPORT
+    #+end_src
 
-    これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．
+    このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． *”f”* を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．
 
-** How to create presentation slides by reveal.js and org-mode (org-reveal) Part2 :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
+    #+BEGIN_EXPORT html
+    <iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+    #+END_EXPORT
+
+  <br />  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．
+
+** COMMENT How to create presentation slides by reveal.js and org-mode (org-reveal) Part2 :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2
    :EXPORT_FILE_NAME: index
@@ -6693,3 +6703,189 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     割合と良い感じになった．
 
     こんなところであろうか．個人的には，LaTeXのbeamerでやれていたことはほぼできるようになり，beamerでは不可能なこともできるようになったので，かなり満足している．CSSに詳しい人なら，もっと色々できると思う．アドバイスなどコメントいただければ有り難い．
+
+** How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
+   :PROPERTIES:
+   :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3
+   :EXPORT_FILE_NAME: index
+   :EXPORT_DATE: 2020-05-09
+   :EXPORT_HUGO_AUTO_SET_LASTMOD: t
+   :EXPORT_HUGO_DRAFT: false
+   :EXPORT_AUTHOR: taipapa
+   :EXPORT_HUGO_TYPE: post
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "reveal.jsとorg-modeで作成したプレゼン用スライドをウェブページに埋め込む"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Molly Malone statue, Dublin"))
+   :END:
+
+   前回までの2回でプレゼンテーション用スライドをorg-revealを介してreveal.jsで作成する方法を説明してきた．今回は，作成したスライドをwebで公開したり，web pageにそのスライドを埋め込む方法を紹介する．
+
+  <!--more-->
+
+  {{{toc(2)}}}
+
+*** References
+    - [[https://qiita.com/Yuki_Yamashina/items/5d8208c450195b65344c][GitHubでWebページを公開する方法]]
+    - [[https://qiita.com/sota_mikami/items/c6038cf13fd84b519a61][【初心者向け】Github pagesでwebページを公開する方法]]
+    - [[https://qiita.com/tonkotsuboy_com/items/f98667b89228b98bc096][GitHubのmasterブランチをWebページとして公開する手順（GitHub Pages）]]
+
+    この2つのサイトを読めば，ここはもう読まなくても良いような．．．
+
+*** How to publish a web page on GitHub
+    前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal][How to create presentation slides by reveal.js and org-mode (org-reveal)]]）で[[https://taipapamotohus.com/MySlides/][live demo]]を作成したが，その際の手順を将来の自分のためにまとめておく．
+
+    1. localでwebページを作る．
+
+       ここでは，以下のようにdirectoryを作って行うこととする．
+       #+begin_src sh
+         $ cd /Users/taipapa/Data/
+         $ mkdir Slides
+       #+end_src
+       そして，このSlides directoryの中でweb pageを作成する．作成方法は，前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal][How to create presentation slides by reveal.js and org-mode (org-reveal)]]）を参照．このdirectoryの中にreveal.jsをgit cloneしてnpm installも行っておく．プラグインなどもインストールするが，後で不要なファイルを削除し必要最小限に減らしてからGitHub pageにアップすれば良い．
+
+    2. GitHub pageに新しいrepositoryを作成する．
+
+       自分のGitHub pageに行き， *Repositories* tagをクリックして， *Repositories* ページに移動すると下図のようになるので，右端の *New* をクリックする．
+
+        #+attr_html: :width 100%
+        [[./static/img/GitHub-1.jpg]]
+
+       *New* をクリックすると下図のようになるので，適当な名前を *Repository name* に 入力して新しいrepositoryを作成する．名前はなんでも良いが，ここではMySlidesにした．名前を入力したら，一番下の *Create repository* をクリックして作成する．
+
+        #+attr_html: :width 100%
+        [[./static/img/GitHub-2.jpg]]
+
+    3. 作成したGitHub pageのrepositoryをlocalにクローンする．
+
+       ターミナルで以下のように行った．
+       #+begin_src sh
+         $ cd /Users/taipapa/Data/Slides
+         $ git clone https://github.com/ユーザー名/リポジトリ名.git
+         # 今回の場合だと以下のようになる
+         $ git clone https://github.com/taipapamotohus/MySlides.git
+         # クローンしたrepositoryのdirectoryに移動する
+         $ cd MySlides
+         $ pwd
+         /Users/taipapa/Data/Slides/MySlides
+       #+end_src
+
+    4. localで作成したウェブページをこのMySlides directoryにコピーする．
+
+       この時に，reveal.jsの中身などを全てコピーする必要はなく，ウェブページができる最小限にすれば容量が節約できる．cssとか画像とか動画など必要なものは全てコピーする．今回は以下のような内容とした．そうそう，作成したhtmlファイルの名前を *index.html* に直すことを忘れないように注意する．
+
+       #+begin_src sh
+         $ pwd
+         $ /Users/taipapa/Data/Slides/MySlides
+         $ tree -L 3
+         .
+         ├── Movies
+         │   └── Knight-33990.mp4
+         ├── custom_oer.css
+         ├── figures
+         │   ├── hoge_fuga.jpg
+         │   └── hoge_fuga.meta
+         ├── index.html
+         └── reveal.js
+             ├── bower_components
+             │   ├── reveal.js-menu
+             │   └── reveal.js-plugins
+             ├── css
+             │   ├── print
+             │   ├── reset.css
+             │   ├── reveal.css
+             │   ├── reveal.scss
+             │   └── theme
+             ├── js
+             │   └── reveal.js
+             ├── lib
+             │   ├── css
+             │   ├── font
+             │   └── js
+             └── plugin
+                 ├── highlight
+                 ├── markdown
+                 ├── math
+                 ├── multiplex
+                 ├── notes
+                 ├── notes-server
+                 ├── print-pdf
+                 ├── search
+                 └── zoom-js
+       #+end_src
+
+    5. gitで，add, commit, push
+
+       必要なファイルがMySlides directoryにコピーできたら以下のようにする．
+
+       #+begin_src sh
+         $ cd /Users/taipapa/Slides/MySlides
+         $ git add .
+         $ git commit -m "first commit"
+         # pushしてGitHub pageのrepositoryに反映させる
+         $ git push origin master
+       #+end_src
+
+    6. GitHub pageを確認
+
+       https://github.com/taipapamotohus/MySlides に行くとこんな感じになる．
+
+        #+attr_html: :width 100%
+        [[./static/img/GitHub-3.jpg]]
+
+       私の下手な説明を読むよりも，このページをgit cloneするかzipを落として．内容を見て貰えば，一番わかりやすいかもしれない．
+
+    7. 上の画像の右端の *Settings* をクリックしてSettingsに移動する．下の方までスクリールして *GitHub Pages* に移動する．ここで下図のように， *Source* を *master branch* にセットする．
+
+        #+attr_html: :width 100%
+        [[./static/img/GitHub-4.jpg]]
+
+        [[https://qiita.com/tonkotsuboy_com/items/f98667b89228b98bc096][GitHubのmasterブランチをWebページとして公開する手順（GitHub Pages）]]によれば，以前は，gh-pagesという別ブランチを作成して、そこにソースコードをプッシュする必要があったが，2016年8月18日以降は，master branchのみでweb pageを公開できるようになったとのことである．もちろん，不要なデータを公開したくない場合は，gh-pages branchを使用すれば良い（[[https://qiita.com/TakuyaHara/items/031294b7a2e586b5c1a4][ブランチ上の一部のデータのみをGitHub Pagesで公開する]]）．
+
+       これで完成である．https://taipapamotohus.com/MySlides/ をクリックして，ちゃんとスライドが見られることを確認する．
+
+*** How to embed presentation slides in web page
+    次の課題は，作成したウェブページを別のウェブページに埋め込むことである．私の場合はHugoで作成したブログにreveal.jsで作成したスライドを埋め込むということになる．前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal][How to create presentation slides by reveal.js and org-mode (org-reveal)]]）では埋め込みについてはさらっと書いているだけだが，実は一番苦労したのはこの埋め込みであった． *iframe* を使えば良いのであろうということはなんとなく分かったのだが，どう使えば良いのかでかなり試行錯誤した．結局，HugoのForumで *shortcodes* を使えば良いという記事（[[https://discourse.gohugo.io/t/how-to-use-iframe-content-correctly-in-a-yaml-file/14360/3][How to use iframe content correctly in a yaml file]]）を見つけてなんとかなった．とは言え，紆余曲折を経てのことなので，以下にその過程を失敗も含めてまとめてみた．
+    1. shortcode templateをHugoのroot directoryに作成する．具体的には/Users/taipapa/Data/MyBlog/Taipapablog/layouts/shortcodes/SlideInclusion.htmlとして作成する． *SlideInclusion.html* の中身は以下の通りである．
+
+       #+begin_src html
+         <iframe src="{{.Get 0}}" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+       #+end_src
+
+    2. 投稿記事の内部でこのshortcodeを呼ぶ．
+
+       投稿記事の内部で，埋め込みたい場所に以下のように記述すれば良い．
+
+       #+begin_src html
+       ｛{< SlideInclusion "https://taipapamotohus.github.io/MySlides/" >}}
+       #+end_src
+       （最初の *"{"* はescapeできないので全角の *"｛"* にしていることに注意）
+
+    3. 上記の書き込みにより，以下のように作成したウェブページが埋め込まれる．
+
+       私の場合は，org-modeのパッケージであるox-hugoを使用して書いているのだが，上記のコードをそのまま書いても埋め込まれることは埋め込まれる．
+
+       {{< SlideInclusion "https://taipapamotohus.github.io/MySlides/" >}}
+
+       <br />
+       というわけでうまく埋め込まれ．．．ていない！この記事自体が埋め込まれてしまっている．これはこれで面白いが（笑）
+
+    4. iframeを，ox-hugoの中に直接書き込む．
+
+       shortcodeをox-hugoから呼ぶとうまく行かないので，以下のように，直接 *iframe* のコードをox-hugoのファイルに書き込むことにした．
+
+       #+begin_src lisp
+         ,#+BEGIN_EXPORT html
+         <iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+         ,#+END_EXPORT
+       #+end_src
+
+       <br />
+       このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる．
+       <br />
+
+       #+BEGIN_EXPORT html
+       <iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+       #+END_EXPORT
+       <br />
+       前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal][How to create presentation slides by reveal.js and org-mode (org-reveal)]]）も今回の内容に合わせて修正しておいた．
+
+       reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．
