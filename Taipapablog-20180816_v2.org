@@ -6595,7 +6595,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
   <br />  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．
 
-** COMMENT How to create presentation slides by reveal.js and org-mode (org-reveal) Part2 :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
+** How to create presentation slides by reveal.js and org-mode (org-reveal) Part2 :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2
    :EXPORT_FILE_NAME: index
@@ -6611,7 +6611,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 *** コロナ肺炎（COVID-19）について
     COVID-19に対する緊急事態宣言が5月末まで延長されることになった．現状を鑑みればやむを得ない判断であろう．今回の会見で，ようやくPCR検査が少ないことを認めた．[[https://www.covid19-yamanaka.com/cont3/17.html][山中伸弥による新型コロナウイルス情報発信]]から辿れる[[https://ourworldindata.org/covid-testing#testing-coverage][Testing coverage]]に行けば，PCR検査の国別の比較の最新データを見ることができる．冒頭の写真はいつものお気楽な観光写真ではなく，このサイトからのグラフである．一目瞭然ではあるが，既にこれまでも報道されてきた通り，日本のPCR検査数は圧倒的に少ない．「途上国並み」と揶揄する報道もあったが，それでは多くの途上国に失礼になるような数字である．グラフは1000人あたりのPCR検査数を示しており，アイスランドの147.8人（人口の15%!）は別格として，いわゆる先進国は2桁以上である．トルコ，韓国も12ー13，台湾 2.71，ベトナム 2.68などに対して， *日本は1.46* である．
 
-    PCR検査が少ないことを認めたわけなので，今後は一刻も早く増やしてもらいたい．脳卒中，心筋梗塞，外傷などの救急治療や癌の手術などは延期することは困難であり，救急に携わる医療スタッフ，救急医，麻酔科医，外科医，手術室スタッフなどは高い感染リスクに晒されている．特に，全身麻酔の際に気管内挿管を行う麻酔科医はエアロゾルを直接浴びることになる．基本的に通常の手術の前でも，B型肝炎，C型肝炎，梅毒，HIVなどの感染症をルーチンに調べる．緊急手術か定期手術かにかかわらず，術前検査にCOVID-19のPCRを加えることは医療崩壊を防ぐためにも必須であろう．僅かではあるが，既にそうしている病院もある．
+    PCR検査が少ないことを認めたわけなので，今後は一刻も早く増やしてもらいたい．脳卒中，心筋梗塞，外傷などの救急治療や癌の手術などは延期することは困難であり，救急に携わる医療スタッフ，救急医，麻酔科医，外科医，手術室スタッフなどは高い感染リスクに晒されている．特に，全身麻酔の際に気管内挿管を行う麻酔科医はエアロゾルを直接浴びることになる．基本的に通常の手術の前でも，B型肝炎，C型肝炎，梅毒，HIVなどの感染症をルーチンに調べる．緊急手術か定期手術かにかかわらず，術前検査にCOVID-19のPCRを加えることは医療崩壊を防ぐためにも必須であろう．僅かではあるが，既にそうしている病院もある．中国からの報告によれば，COVID-19 の確定患者の29%は医療従事者であり，12%は入院患者，即ち，合計41%が院内感染であることを肝に銘じる必要がある（JAMA. 2020 Feb 7. doi: 10.1001/jama.2020.1585）．
 
    さて，今回はコロナ肺炎の話で始まってしまったが，ここからの内容は前回のreveal.jsによるスライド作成に関する追加である．弄っているうちに多少装飾もできるようになってきたので報告する．ほとんどは，Cascading Style Sheets (CSS)に関することになるので，分かってる人には不要な話かも．．．😅
 
@@ -6704,7 +6704,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     こんなところであろうか．個人的には，LaTeXのbeamerでやれていたことはほぼできるようになり，beamerでは不可能なこともできるようになったので，かなり満足している．CSSに詳しい人なら，もっと色々できると思う．アドバイスなどコメントいただければ有り難い．
 
-** How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
+** COMMENT How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3
    :EXPORT_FILE_NAME: index
