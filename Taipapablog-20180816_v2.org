@@ -6913,7 +6913,8 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     *Rainbow Worm*
      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
      <div id='demo'></div>
-     <script src="/js/RainbowWorm.js"></script>
+     <script src="/RainbowWorm.js"></script>
+     # <script src="/js/RainbowWorm.js"></script>
 
      # <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
      # <div class='visualisation'></div>
@@ -7036,7 +7037,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
      #+begin_src html
        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
        <div id='demo'></div>
-       <script src="/js/RainbowWorm.js"></script>
+       <script src="/RainbowWorm.js"></script>
      #+end_src
 
     （最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）
