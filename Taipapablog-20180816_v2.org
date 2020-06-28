@@ -6704,7 +6704,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     こんなところであろうか．個人的には，LaTeXのbeamerでやれていたことはほぼできるようになり，beamerでは不可能なこともできるようになったので，かなり満足している．CSSに詳しい人なら，もっと色々できると思う．アドバイスなどコメントいただければ有り難い．
 
-** COMMENT How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
+** How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3
    :EXPORT_FILE_NAME: index
@@ -6713,7 +6713,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
    :EXPORT_HUGO_DRAFT: false
    :EXPORT_AUTHOR: taipapa
    :EXPORT_HUGO_TYPE: post
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "reveal.jsとorg-modeで作成したプレゼン用スライドをウェブページに埋め込む"
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle "reveal.jsとorg-modeで作成したプレゼン用スライドをウェブページに埋め込む（ *2020年6月28日追加あり* ）"
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . "Molly Malone statue, Dublin"))
    :END:
 
@@ -6812,7 +6812,16 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
                  └── zoom-js
        #+end_src
 
-    5. gitで，add, commit, push
+    5. もう一つ大事なことは，index.htmlの中に記載されている絶対パスを相対パスに直すことである．例えば，
+       #+begin_src html
+         <script src="file:///Users/taipapa/Data/Slides/reveal.js/js/reveal.js"></script>
+
+         ------->
+
+         <script src="reveal.js/js/reveal.js"></script>
+       #+end_src
+        と言うふうに修正する．このように修正しておかないと，GitHubに置いた時に動かなくなってしまう．私はこれにハマった．（ *2020年6月28日追加* ）
+    6. gitで，add, commit, push
 
        必要なファイルがMySlides directoryにコピーできたら以下のようにする．
 
@@ -6824,7 +6833,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
          $ git push origin master
        #+end_src
 
-    6. GitHub pageを確認
+    7. GitHub pageを確認
 
        https://github.com/taipapamotohus/MySlides に行くとこんな感じになる．
 
@@ -6833,7 +6842,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
        私の下手な説明を読むよりも，このページをgit cloneするかzipを落として．内容を見て貰えば，一番わかりやすいかもしれない．
 
-    7. 上の画像の右端の *Settings* をクリックしてSettingsに移動する．下の方までスクリールして *GitHub Pages* に移動する．ここで下図のように， *Source* を *master branch* にセットする．
+    8. 上の画像の右端の *Settings* をクリックしてSettingsに移動する．下の方までスクリールして *GitHub Pages* に移動する．ここで下図のように， *Source* を *master branch* にセットする．
 
         #+attr_html: :width 100%
         [[./static/img/GitHub-4.jpg]]
@@ -6890,7 +6899,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
        reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．
 
-** How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
+** COMMENT How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js
    :EXPORT_FILE_NAME: index
@@ -6913,8 +6922,8 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     *Rainbow Worm*
      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
      <div id='demo'></div>
-     <script src="/RainbowWorm.js"></script>
-     # <script src="/js/RainbowWorm.js"></script>
+     # <script src="/RainbowWorm.js"></script>
+     <script src="/js/RainbowWorm.js"></script>
 
      # <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
      # <div class='visualisation'></div>

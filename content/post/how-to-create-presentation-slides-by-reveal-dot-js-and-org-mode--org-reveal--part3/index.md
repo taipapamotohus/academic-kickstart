@@ -2,12 +2,12 @@
 title = "How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page."
 author = ["taipapa"]
 date = 2020-05-09
-lastmod = 2020-05-09T19:54:24+09:00
+lastmod = 2020-06-28T17:49:35+09:00
 tags = ["reveal", "js", "org-reveal", "emacs", "org-mode", "presentation", "slide", "javascript", "github"]
 type = "post"
 draft = false
 weight = 1
-subtitle = "reveal.jsとorg-modeで作成したプレゼン用スライドをウェブページに埋め込む"
+subtitle = "reveal.jsとorg-modeで作成したプレゼン用スライドをウェブページに埋め込む（ *2020年6月28日追加あり* ）"
 [image]
   placement = 3
   caption = "Molly Malone statue, Dublin"
@@ -123,7 +123,18 @@ subtitle = "reveal.jsとorg-modeで作成したプレゼン用スライドをウ
             └── zoom-js
     ```
 
-5.  gitで，add, commit, push
+5.  もう一つ大事なことは，index.htmlの中に記載されている絶対パスを相対パスに直すことである．例えば，
+
+    ```html
+    <script src="file:///Users/taipapa/Data/Slides/reveal.js/js/reveal.js"></script>
+
+    ------->
+
+    <script src="reveal.js/js/reveal.js"></script>
+    ```
+
+    と言うふうに修正する．このように修正しておかないと，GitHubに置いた時に動かなくなってしまう．私はこれにハマった．（ **2020年6月28日追加** ）
+6.  gitで，add, commit, push
 
     必要なファイルがMySlides directoryにコピーできたら以下のようにする．
 
@@ -135,7 +146,7 @@ subtitle = "reveal.jsとorg-modeで作成したプレゼン用スライドをウ
     $ git push origin master
     ```
 
-6.  GitHub pageを確認
+7.  GitHub pageを確認
 
     <https://github.com/taipapamotohus/MySlides> に行くとこんな感じになる．
 
@@ -143,7 +154,7 @@ subtitle = "reveal.jsとorg-modeで作成したプレゼン用スライドをウ
 
     私の下手な説明を読むよりも，このページをgit cloneするかzipを落として．内容を見て貰えば，一番わかりやすいかもしれない．
 
-7.  上の画像の右端の **Settings** をクリックしてSettingsに移動する．下の方までスクリールして **GitHub Pages** に移動する．ここで下図のように， **Source** を **master branch** にセットする．
+8.  上の画像の右端の **Settings** をクリックしてSettingsに移動する．下の方までスクリールして **GitHub Pages** に移動する．ここで下図のように， **Source** を **master branch** にセットする．
 
     {{< figure src="/img/GitHub-4.jpg" width="100%" >}}
 
