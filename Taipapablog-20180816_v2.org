@@ -6704,7 +6704,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     こんなところであろうか．個人的には，LaTeXのbeamerでやれていたことはほぼできるようになり，beamerでは不可能なこともできるようになったので，かなり満足している．CSSに詳しい人なら，もっと色々できると思う．アドバイスなどコメントいただければ有り難い．
 
-** How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
+** COMMENT How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page. :reveal:js:org_reveal:emacs:org_mode:presentation:slide:javascript:github:
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3
    :EXPORT_FILE_NAME: index
@@ -6899,7 +6899,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
        reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．
 
-** COMMENT How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
+** How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js
    :EXPORT_FILE_NAME: index
@@ -6920,14 +6920,18 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 *** D3.js
     *Rainbow Worm*
-     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-     <div id='demo'></div>
-     # <script src="/RainbowWorm.js"></script>
-     <script src="/js/RainbowWorm.js"></script>
+    #+begin_export html
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <div id='demo'></div>
+    <script src="/js/RainbowWorm.js"></script>
+    #+end_export
 
-     # <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-     # <div class='visualisation'></div>
-     # <script src="/js/example.js"></script>
+    # <script src="/RainbowWorm.js"></script>
+
+    # <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    # <div class='visualisation'></div>
+    # <script src="/js/example.js"></script>
+
 
     D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．
 **** References
@@ -7044,18 +7048,16 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
  最初の部分の変更は大きさや位置の調整である．25行目の var svg = d3.select("#demo").append("svg") の部分は元のままでも良いと思うが，何かを参考にbodyをdemoに書き換えた．このRainbowWorm.jsを/Users/taipapa/Data/MyBlog/Taipapablog/static/js/に保存すればhugoが読みに行ってくれる（要するにhugoのstatic directory以下に保存すれば良い．subdirectoryを作っても良い）．そして，以下のようにox-hugoの原稿に書き込む．
 
      #+begin_src html
+       ,#+begin_export html
        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
        <div id='demo'></div>
-       <script src="/RainbowWorm.js"></script>
+       <script src="/js/RainbowWorm.js"></script>
+       ,#+end_export
      #+end_src
 
     （最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）
 
-    しかし，これではexportされたmarkdownの該当部分が，
-    #+begin_src html
-      <script src="<http://d3js.org/d3.v3.min.js>" charset="utf-8"></script>
-    #+end_src
-    と言う具合にurlが "<" と ">" に囲まれてしまい読みに行かなくなってしまう．そこで，export先である /Users/taipapa/Data/MyBlog/Taipapablog/content/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/index.md の中の該当部分の "<" と ">" を消去すると，そこで初めて，最初の図のようにrainbow wormが表示される．美しい．．．
+    これでC-c C-e HAによりexportすれば，最初の図のようにrainbow wormが表示される．美しい．．．
 
 **** How to insert a figure created by d3.js into slide by reveal.js
      それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． *#+REVEAL_HTML:* をつけるのがミソである．
@@ -7068,9 +7070,16 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
      #+end_src
 
 
-  これでexportすれば，スライドタイトルが "Rainbow Worm" となりその下にrainbow wormが蠢いているhtml スライドができる．
+  これでexportすれば，スライドタイトルが "Rainbow Worm" となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，[[http://taipapamotohus.com/MySlide_v2/]]にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2][How to create presentation slides by reveal.js and org-mode (org-reveal) Part2]] ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．
 
- ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
+     #+BEGIN_EXPORT html
+     <iframe src="http://taipapamotohus.com/MySlide_v2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+     #+END_EXPORT
+<br>
+<br>
+    よく考えてみたら，rainbow wormではinteractive slideとは言えないことに気が付いたが，その辺りは次回以降で検討していくことにする．どうしてもあれは載せてみたかった．．．．
+<br>
+<br> ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
 
      と言うことで，ようやく *Plotly* の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である.....😅
 
