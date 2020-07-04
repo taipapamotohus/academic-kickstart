@@ -1,11 +1,7 @@
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <div id="demo">
-
 // var margin = {top: 100, right: 100, bottom: 100, left: 100},
 //     width = 960 - margin.left - margin.right,
 //     height = 500 - margin.top - margin.bottom;
 
-<script>
 var margin = {top: 60, right: 60, bottom: 60, left: 60},
     width = 700 - margin.left - margin.right,
     height = 360 - margin.top - margin.bottom;
@@ -90,6 +86,3 @@ function perp(p0, p1) {
       u01d = Math.sqrt(u01x * u01x + u01y * u01y);
   return [u01x / u01d, u01y / u01d];
 }
-</script>
-
-  </div>
