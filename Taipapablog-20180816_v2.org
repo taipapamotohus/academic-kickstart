@@ -6899,7 +6899,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
        reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．
 
-** COMMENT How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
+** How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)
    :PROPERTIES:
    :EXPORT_HUGO_BUNDLE: how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js
    :EXPORT_FILE_NAME: index
