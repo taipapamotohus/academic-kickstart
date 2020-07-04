@@ -2,7 +2,7 @@
 title = "How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)"
 author = ["taipapa"]
 date = 2020-06-14
-lastmod = 2020-07-04T21:53:39+09:00
+lastmod = 2020-07-04T23:59:46+09:00
 type = "post"
 draft = false
 weight = 1
@@ -187,7 +187,7 @@ function perp(p0, p1) {
 
 これでexportすれば，スライドタイトルが "Rainbow Worm" となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，<http://taipapamotohus.com/MySlide%5Fv2/>にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（[How to create presentation slides by reveal.js and org-mode (org-reveal) Part2](../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2) ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．
 
-<iframe src="http://taipapamotohus.com/MySlide_v2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+<iframe src="http://taipapamotohus.github.io/MySlide_v2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
 
 <br>
 <br>
