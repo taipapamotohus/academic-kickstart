@@ -6924,7 +6924,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <div id='demo'></div>
     <!-- <iframe src="/js/RainbowWorm_v2.js"></iframe> -->
-    <script src="RainbowWorm.js"></script>
+    <script src="/js/RainbowWorm.js"></script>
     #+end_export
 
     D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．
@@ -7053,6 +7053,8 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     これでC-c C-e HAによりexportすれば，最初の図のようにrainbow wormが表示される．美しい．．．
 
+    *となるはずであったが，localhostではRainbow wormが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった..... 😭 後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．*
+
 **** How to insert a figure created by d3.js into slide by reveal.js
      それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． *#+REVEAL_HTML:* をつけるのがミソである．
 
@@ -7060,20 +7062,25 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
        ,* Rainbow Worm
          ,#+REVEAL_HTML: <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
          ,#+REVEAL_HTML: <div id='demo'></div>
-         ,#+REVEAL_HTML: <script src="RainbowWorm.js"></script>
+         ,#+REVEAL_HTML: <script src="/js/RainbowWorm.js"></script>
      #+end_src
 
 
   これでexportすれば，スライドタイトルが "Rainbow Worm" となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，[[http://taipapamotohus.com/MySlide_v2/]]にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（[[../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2][How to create presentation slides by reveal.js and org-mode (org-reveal) Part2]] ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．
 
      #+BEGIN_EXPORT html
-     <iframe src="http://taipapamotohus.github.io/MySlide_v2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+     <iframe src="http://taipapamotohus.github.io/MySlide%5Fv2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
      #+END_EXPORT
 <br>
+
+    *となるはずであったが，localhostではこちらもまたスライドが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった..... 😭 こちらも後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．なお，[[http://taipapamotohus.com/MySlide_v2/]]にアップしたスライドはちゃんとRainbow wormが動いているので確認していただきたい*
+
 <br>
     よく考えてみたら，rainbow wormではinteractive slideとは言えないことに気が付いたが，その辺りは次回以降で検討していくことにする．どうしてもあれは載せてみたかった．．．．
+
 <br>
-<br> ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
+<br>
+    ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった（うまくいってない部分もあるが．．．）．しかし，一番の問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
 
      と言うことで，ようやく *Plotly* の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である.....😅
 
